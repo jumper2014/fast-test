@@ -1,0 +1,4 @@
+. download https://downloads.apache.org/zookeeper/stable/apache-zookeeper-3.6.3-bin.tar.gz and unzip it
+. update zoo.cfg and for dataDir and dataLogDir
+. install java jdk to C:\Java\jdk1.8.0_291
+. start zkServer.cmd
