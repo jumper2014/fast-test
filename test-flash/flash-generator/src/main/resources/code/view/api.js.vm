@@ -1,0 +1,33 @@
+import request from '@/utils/request'
+export default {
+    getList:function(params) {
+        return request({
+            url: '${table.UriPrefix}/list',
+            method: 'get',
+            params
+        })
+    },
+    add:function(params) {
+        return request({
+            url: '${table.UriPrefix}',
+            method: 'post',
+            params
+        })
+    },
+    update:function(params) {
+        return request({
+            url: '${table.UriPrefix}',
+            method: 'PUT',
+            params
+        })
+    },
+    remove:function(id) {
+        return request({
+            url: '${table.UriPrefix}',
+            method: 'delete',
+            params: {
+                id: id
+            }
+        })
+    }
+}
