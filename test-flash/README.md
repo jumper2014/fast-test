@@ -1,41 +1,20 @@
 # 前言
-[![Spring Boot](https://img.shields.io/badge/spring--boot-2.3.11.RELEASE-brightgreen)](https://github.com/spring-projects/spring-boot)
-[![vue](https://img.shields.io/badge/vue-2.6.10-brightgreen.svg)](https://github.com/vuejs/vue)
-[![element-ui](https://img.shields.io/badge/element--ui-2.11.0-brightgreen.svg)](https://github.com/ElemeFE/element)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/enilu/web-flash/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/release/enilu/web-flash.svg)](https://github.com/enilu/web-flash/releases)
-[![donate](https://img.shields.io/badge/%24-donate-ff69b4.svg)](./docs/donate.md)
-[![Gitee stars](https://gitee.com/enilu/web-flash/badge/star.svg?theme=social)](https://gitee.com/enilu/web-flash)
-[![GitHub stars](https://img.shields.io/github/stars/enilu/web-flash.svg?style=social&label=Stars)](https://github.com/enilu/web-flash)
-[![Join the chat at https://gitter.im/web-flash/community](https://badges.gitter.im/web-flash/community.svg)](https://gitter.im/web-flash/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+- test-flash是一个测试工具平台，可以帮助测试人员从页面上简化测试执行过程
 
-- web-flash是一个基于[Spring Boot](https://spring.io/projects/spring-boot/)和[Vue.js](https://cn.vuejs.org)的web系统，包含了基于[element](https://element.eleme.cn/#/zh-CN)搭建的后台管理系统和基于[vux](https://vux.li)搭建的手机端h5站点
-- web-flash具备后台管理类系统的通用的基础功能，而且提供了基于idea intellij的的代码生成插件，可以一键生成前后端页面。
-- web-flash提供了一个后台管理系统和前端h5站点系统
-- 另提供Material Design风格的单体版：[material-admin](https://github.com/enilu/material-admin)
-- 另提供[web-flash spring cloud版本](https://gitee.com/enilu/web-flash-spring-cloud)
 ## 目录说明
 - flash-api 后台api服务
-- flash-vue-admin 基于vuejs的后台管理系统
-- flash-vue-h5 移动端内容系统，基于后台管理CMS内容管理模块的内容进行展示。
+- flash-vue-admin 基于vuejs的前端代码目录
 - flash-core 基础模块，包括工具类，dao，service，bean等内容
-- flash-generator 代码生成模块,配合IDEA 代码生成插件[webflash-generator](https://plugins.jetbrains.com/plugin/12648-webflash-generator)使用效果更好
-- flash-workflow 基于activiti实现工作流功能
-## 演示
-- 后台管理(vue版本) [http://flashadmin.enilu.cn](http://flashadmin.enilu.cn)
-- 手机端 [http://flash-mobile.enilu.cn/#/index](http://flash-mobile.enilu.cn/#/index) 打开浏览器后使用debug模式的手机视图模式浏览
 
 ## 技术选型
 - 核心框架：Spring Boot
 - 数据库层：Spring data jpa
 - 数据库连接池：Druid
 - 缓存：Ehcache
-- 前端：基于Vue.js的Element（后端）和vux（手机端） 
-- 工作流：activiti
-
+- 前端：基于Vue.js的Element
 
 ## 包含的功能
-web-flash包含了成熟的后台管理功能和手机端h5内容站点系统
+test-flash包含了成熟的后台管理功能
 - 部门管理
 - 用户管理
 - 角色管理
@@ -49,12 +28,11 @@ web-flash包含了成熟的后台管理功能和手机端h5内容站点系统
 - cms内容管理，配合flash-vue-h5提供了手机端内容展示系统
 - 消息管理：配置消息模板，发送短信，邮件消息
 - 工作流：流程定义，发起申请，待办任务
-- 基于idea插件的代码生成
 
 
 ## 使用
 - 克隆本项目
-- 导入idea或者eclipse
+- 导入idea
 - 创建数据库：web-flash
      ```sql
         CREATE DATABASE IF NOT EXISTS webflash DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 
@@ -70,20 +48,5 @@ web-flash包含了成熟的后台管理功能和手机端h5内容站点系统
     - 运行 npm install --registry=https://registry.npm.taobao.org
     - 运行npm run dev
     - 启动成功后访问 http://localhost:9528 ,登录，用户名密码:admin/admin     
-- 后台管理运行效果图：
-    ![admin](https://gitee.com/enilu/web-flash/raw/master/docs/vuejs.gif)
-- 进入flash-vue-h5目录
-    - 运行 npm install --registry=https://registry.npm.taobao.org
-    - 运行npm run dev
-    - 启动成功后访问 http://localhost:8088/#/index
-- 手机端运行效果图：
-    ![mobile](https://gitee.com/enilu/web-flash/raw/master/docs/flash-mobile.gif)
 
-## 在线文档
-- [http://webflash.enilu.cn](http://webflash.enilu.cn)
 
-## 交流
-- Gitter: [Gitter channel](https://gitter.im/web-flash/community)
-- QQ:752844606
-
-[Change Log](http://enilu.gitee.io/web-flash/other/changeLog.html)
