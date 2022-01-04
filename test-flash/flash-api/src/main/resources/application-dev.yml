@@ -10,7 +10,7 @@ spring:
       username: root
       password: 123456
     crud:
-      url: jdbc:mysql://localhost:3306/crud?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+      url: jdbc:mysql://localhost:3306/testflash?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
       username: root
       password: 123456
   jpa:

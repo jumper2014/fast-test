@@ -68,8 +68,8 @@ public class DruidConfiguration {
         return new DruidDataSource();
     }
 
-    @Bean("aps")
-    @ConfigurationProperties(prefix = "spring.datasource.aps")
+    @Bean("crud")
+    @ConfigurationProperties(prefix = "spring.datasource.crud")
     public DataSource aps(){
         return new DruidDataSource();
     }

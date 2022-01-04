@@ -15,7 +15,7 @@ export default {
     createFile() {
       createFile(this.fileInfo).then(response => {
         this.$message({
-          message: 'Merchant批量文件生成完成',
+          message: '文件生成成功',
           type: 'success'
         })
       }).catch(function (err) {

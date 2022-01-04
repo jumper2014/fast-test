@@ -35,6 +35,7 @@ export default {
     createfile: 'Create File',
     curd: 'CURD',
     uploadfile: 'Upload File',
+    jsondiff: 'JSON Diff',
 
   },
   navbar: {

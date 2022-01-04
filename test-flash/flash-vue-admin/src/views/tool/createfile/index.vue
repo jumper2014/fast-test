@@ -1,13 +1,16 @@
 <template>
   <div class="app-container">
     <div class="block">
+       <el-row>
+        指定文件行数
+       </el-row>
       <el-row>
         <el-col :span="6"
           ><div class="grid-content bg-purple">
             <el-input
               size="mini"
               v-model="fileInfo.total"
-              placeholder="请指定记录条数"
+              placeholder="指定文件行数"
             ></el-input></div
         ></el-col>
         <el-col :span="6"
@@ -17,7 +20,7 @@
               size="mini"
               icon="el-icon-edit"
               @click.native="createFile"
-              >创建导入文件</el-button
+              >创建文件</el-button
             >
           </div></el-col
         >

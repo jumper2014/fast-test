@@ -33,7 +33,7 @@ public class CrudController extends BaseController {
     @Autowired
     ApsWrkFlwService apsWrkFlwService;
 
-    @DSource(value = "flow")
+    @DSource(value = "crud")
     @GetMapping("/list")
     public Object listRule(
             @RequestParam(required = false) String flowId,
@@ -48,7 +48,7 @@ public class CrudController extends BaseController {
         return Rets.success(page);
     }
 
-    @DSource(value = "flow")
+    @DSource(value = "crud")
     @PostMapping("/add")
     public Object save(@Valid WrkflowDTO wrkflowDTO, BindingResult result) {
         System.out.println("/add");
@@ -69,7 +69,7 @@ public class CrudController extends BaseController {
         return Rets.success();
     }
 
-        @DSource(value = "flow")
+        @DSource(value = "crud")
         @DeleteMapping("/delete")
         public Object remove(@RequestParam Integer flowId) {
             if (flowId == null) {
