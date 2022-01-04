@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class WrkflowDTO {
     Integer flowId;
     String flowDesc;
-    String bizSysId;
-    String bizType;
+    Integer stepCount;
+    String flowStatus;
+    String defaultResult;
+
 }

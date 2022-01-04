@@ -61,10 +61,6 @@ public class CrudController extends BaseController {
                 apsWrkFlwService.insert(WrkFlowFactory.createWrkFlow(wrkflowDTO, new ApsWrkFlw()));
             }
 
-//        } else {
-//            User oldUser = userService.get(user.getId());
-//            userService.update(UserFactory.updateUser(user, oldUser));
-//        }
         }
         return Rets.success();
     }

@@ -70,7 +70,7 @@ public class DruidConfiguration {
 
     @Bean("crud")
     @ConfigurationProperties(prefix = "spring.datasource.crud")
-    public DataSource aps(){
+    public DataSource crud(){
         return new DruidDataSource();
     }
 

@@ -107,13 +107,19 @@
 
           
           <el-col :span="12">
-            <el-form-item label="bizSysId" prop="bizSysId">
-              <el-input v-model="form.bizSysId"></el-input>
+            <el-form-item label="步骤数" prop="stepCount">
+              <el-input v-model="form.stepCount"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="bizType" prop="bizType">
-              <el-input v-model="form.bizType"></el-input>
+            <el-form-item label="状态" prop="flowStatus">
+              <el-input v-model="form.flowStatus"></el-input>
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="12">
+            <el-form-item label="默认结果" prop="defaultResult">
+              <el-input v-model="form.defaultResult"></el-input>
             </el-form-item>
           </el-col>
           

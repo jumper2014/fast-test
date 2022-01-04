@@ -52,6 +52,9 @@ public class ApsWrkFlwService extends BaseService<ApsWrkFlw, Integer, ApsWrkFlwR
     public ApsWrkFlw update(WrkflowDTO wrkflowDTO) {
         ApsWrkFlw  apsWrkFlw = apsWrkFlwRepository.findByFlowId(wrkflowDTO.getFlowId());
         apsWrkFlw.setFlowDesc(wrkflowDTO.getFlowDesc());
+        apsWrkFlw.setDefaultResult(wrkflowDTO.getDefaultResult());
+        apsWrkFlw.setFlowStatus(wrkflowDTO.getFlowStatus());
+        apsWrkFlw.setStepCount(Integer.valueOf(wrkflowDTO.getStepCount()));
         update(apsWrkFlw);
         return apsWrkFlw;
     }
