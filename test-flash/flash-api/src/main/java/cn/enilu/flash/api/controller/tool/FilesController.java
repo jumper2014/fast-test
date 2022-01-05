@@ -1,5 +1,7 @@
 package cn.enilu.flash.api.controller.tool;
 
+import cn.enilu.flash.api.helper.ReadJson;
+import cn.enilu.flash.api.helper.WriteToExcel;
 import cn.enilu.flash.bean.vo.front.Rets;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -14,9 +16,11 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.List;
+import java.util.UUID;
 
 /**
- * @Description: soringboot整合vue,文件上传下载
+ * @Description: soringboot整合vue, 文件上传下载
  * @Author: yanhonghai
  * @Date: 2019/4/17 0:56
  */
@@ -59,26 +63,63 @@ public class FilesController {
         return Rets.success("上传成功!");
     }
 
+    @RequestMapping("/km2xls")
+    public Object km2xlsFile(@RequestParam("file") MultipartFile mf) {
+        File fileDir = new File(rootPath);
+        if (!fileDir.exists() && !fileDir.isDirectory()) {
+            fileDir.mkdirs();
+        }
+        try {
+            if (mf != null) {
+
+                try {
+                    String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+                    String storagePath = rootPath + uuid + mf.getOriginalFilename();
+                    logger.info("上传的文件：" + mf.getName() + "," + mf.getContentType() + "," + mf.getOriginalFilename()
+                            + "，保存的路径为：" + storagePath);
+                    Streams.copy(mf.getInputStream(), new FileOutputStream(storagePath), true);
+                    String xlsFile = (uuid + mf.getOriginalFilename()).replace(".km", "");
+                    List<List<String>> allCaseList = ReadJson.readJson(storagePath);
+                    System.out.printf("Total case number is: " + allCaseList.size());
+                    WriteToExcel.writeToExcel(allCaseList, rootPath, xlsFile);
+                    return Rets.success(xlsFile);
+
+                    //或者下面的
+                    // Path path = Paths.get(storagePath);
+                    //Files.write(path,multipartFiles[i].getBytes());
+                } catch (IOException e) {
+                    logger.error(ExceptionUtils.getFullStackTrace(e));
+                }
+            }
+
+
+        } catch (Exception e) {
+            return Rets.failure(e.getMessage());
+        }
+        return Rets.success("上传成功!");
+    }
+
     /**
      * http://localhost:8080/file/download?fileName=新建文本文档.txt
+     *
      * @param fileName
      * @param response
      * @param request
      * @return
      */
     @RequestMapping("/download")
-    public Object downloadFile(@RequestParam String fileName, final HttpServletResponse response, final HttpServletRequest request){
+    public Object downloadFile(@RequestParam String fileName, final HttpServletResponse response, final HttpServletRequest request) {
         OutputStream os = null;
-        InputStream is= null;
+        InputStream is = null;
         try {
             // 取得输出流
             os = response.getOutputStream();
             // 清空输出流
             response.reset();
             response.setContentType("application/x-download;charset=GBK");
-            response.setHeader("Content-Disposition", "attachment;filename="+ new String(fileName.getBytes("utf-8"), "iso-8859-1"));
+            response.setHeader("Content-Disposition", "attachment;filename=" + new String(fileName.getBytes("utf-8"), "iso-8859-1"));
             //读取流
-            File f = new File(rootPath+fileName);
+            File f = new File(rootPath + fileName);
             is = new FileInputStream(f);
             if (is == null) {
                 logger.error("下载附件失败，请检查文件“" + fileName + "”是否存在");
@@ -88,11 +129,10 @@ public class FilesController {
             IOUtils.copy(is, response.getOutputStream());
             response.getOutputStream().flush();
         } catch (IOException e) {
-            return Rets.failure("下载附件失败,error:"+e.getMessage());
+            return Rets.failure("下载附件失败,error:" + e.getMessage());
         }
         //文件的关闭放在finally中
-        finally
-        {
+        finally {
             try {
                 if (is != null) {
                     is.close();

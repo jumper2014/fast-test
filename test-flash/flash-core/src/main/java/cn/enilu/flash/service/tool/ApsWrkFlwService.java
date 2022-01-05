@@ -1,4 +1,4 @@
-package cn.enilu.flash.service.atool;
+package cn.enilu.flash.service.tool;
 
 import cn.enilu.flash.bean.dto.WrkflowDTO;
 import cn.enilu.flash.bean.entity.atool.ApsWrkFlw;
