@@ -83,7 +83,8 @@ public class ShiroConfig {
         filterRuleMap.put("/tool/**", "anon");
         filterRuleMap.put("/merchant/**", "anon");
         filterRuleMap.put("/pb/**", "anon");
-        filterRuleMap.put("/aps/**", "anon");
+        filterRuleMap.put("/crud/**", "anon");
+        filterRuleMap.put("/files/**", "anon");
 
         //工作流定义文件流
         filterRuleMap.put("/workflow/process/definition/getDefinitionXML","anon");
