@@ -35,6 +35,7 @@ export default {
     createfile: 'Create File',
     curd: 'CURD',
     uploadfile: 'Upload File',
+    downloadfile: 'Download File',
     jsondiff: 'JSON Diff',
 
   },

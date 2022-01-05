@@ -36,6 +36,7 @@ export default {
     createfile: '生成文件',
     curd: '增删改查',
     uploadfile: '上传文件',
+    downloadfile: '下载文件',
     jsondiff: 'JSON对比',
 
   },

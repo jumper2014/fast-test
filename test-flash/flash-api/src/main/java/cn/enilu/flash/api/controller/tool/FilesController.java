@@ -2,6 +2,7 @@ package cn.enilu.flash.api.controller.tool;
 
 import cn.enilu.flash.bean.vo.front.Rets;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.apache.tomcat.util.http.fileupload.util.Streams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
 /**
@@ -20,8 +23,8 @@ import java.io.*;
 //上传不要用@Controller,用@RestController
 @RestController
 @RequestMapping("/files")
-public class FilesUploadController {
-    private static final Logger logger = LoggerFactory.getLogger(FilesUploadController.class);
+public class FilesController {
+    private static final Logger logger = LoggerFactory.getLogger(FilesController.class);
     //在文件操作中，不用/或者\最好，推荐使用File.separator
     private final static String fileDir = "files";
     private final static String rootPath = System.getProperty("user.home") + File.separator + fileDir + File.separator;
@@ -54,5 +57,57 @@ public class FilesUploadController {
             return Rets.failure(e.getMessage());
         }
         return Rets.success("上传成功!");
+    }
+
+    /**
+     * http://localhost:8080/file/download?fileName=新建文本文档.txt
+     * @param fileName
+     * @param response
+     * @param request
+     * @return
+     */
+    @RequestMapping("/download")
+    public Object downloadFile(@RequestParam String fileName, final HttpServletResponse response, final HttpServletRequest request){
+        OutputStream os = null;
+        InputStream is= null;
+        try {
+            // 取得输出流
+            os = response.getOutputStream();
+            // 清空输出流
+            response.reset();
+            response.setContentType("application/x-download;charset=GBK");
+            response.setHeader("Content-Disposition", "attachment;filename="+ new String(fileName.getBytes("utf-8"), "iso-8859-1"));
+            //读取流
+            File f = new File(rootPath+fileName);
+            is = new FileInputStream(f);
+            if (is == null) {
+                logger.error("下载附件失败，请检查文件“" + fileName + "”是否存在");
+                return Rets.failure("下载附件失败，请检查文件“" + fileName + "”是否存在");
+            }
+            //复制
+            IOUtils.copy(is, response.getOutputStream());
+            response.getOutputStream().flush();
+        } catch (IOException e) {
+            return Rets.failure("下载附件失败,error:"+e.getMessage());
+        }
+        //文件的关闭放在finally中
+        finally
+        {
+            try {
+                if (is != null) {
+                    is.close();
+                }
+            } catch (IOException e) {
+                logger.error(ExceptionUtils.getFullStackTrace(e));
+            }
+            try {
+                if (os != null) {
+                    os.close();
+                }
+            } catch (IOException e) {
+                logger.error(ExceptionUtils.getFullStackTrace(e));
+            }
+        }
+        return null;
     }
 }
