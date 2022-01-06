@@ -1,0 +1,3 @@
+com\zyt\javacode\springboot\dubbo\api\SpringbootDubboApiApplication.class
+com\zyt\javacode\springboot\dubbo\api\model\User.class
+com\zyt\javacode\springboot\dubbo\api\service\UserService.class
