@@ -7,7 +7,10 @@
         </el-col>
         <el-col :span="4">
           <el-button type="success" size="mini" icon="el-icon-refresh-right" @click.native="unlockUser">解锁用户</el-button>
-           <el-button type="success" size="mini" icon="el-icon-edit" @click.native="lockUser">锁定用户</el-button>
+         
+        </el-col>
+         <el-button type="success" size="mini" icon="el-icon-edit" @click.native="lockUser">锁定用户</el-button>
+        <el-col :span="4">
         </el-col>
       </el-row>
  

@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/dbop")
 public class DbOpController extends BaseController {
     @PostMapping("/userstatus")
-    public Object setUserStatus(String userName, String status){
+    public Object setUserStatus(String userName, String userStatus){
         MySQLHelper helper = new MySQLHelper();
         JdbcTemplate jdbcTemplate = helper.connectDbOpDb();
-        String sql = "UPDATE user SET user_status='"+status + " 'WHERE user_name='" + userName + "'";
+        String sql = "UPDATE user SET user_status='"+userStatus + " 'WHERE user_name='" + userName + "'";
         System.out.println(sql);
         jdbcTemplate.update(sql);
         return Rets.success();

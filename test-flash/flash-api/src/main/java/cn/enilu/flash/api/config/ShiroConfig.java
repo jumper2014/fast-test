@@ -21,7 +21,6 @@ import java.util.Map;
 
 /**
  * @author ：enilu
- * @date ：Created in 2019/7/30 23:08
  */
 @Configuration
 public class ShiroConfig {
@@ -81,8 +80,8 @@ public class ShiroConfig {
         filterRuleMap.put("/test/**", "anon");
         //  测试工具的路径权限从这里开始
         filterRuleMap.put("/tool/**", "anon");
-        filterRuleMap.put("/merchant/**", "anon");
-        filterRuleMap.put("/pb/**", "anon");
+        filterRuleMap.put("/createfile/**", "anon");
+        filterRuleMap.put("/dbop/**", "anon");
         filterRuleMap.put("/crud/**", "anon");
         filterRuleMap.put("/files/**", "anon");
 

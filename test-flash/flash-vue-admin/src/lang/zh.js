@@ -38,6 +38,7 @@ export default {
     uploadfile: '上传文件',
     downloadfile: '下载文件',
     jsondiff: 'JSON对比',
+    dbop: 'DB操作',
 
   },
   navbar: {

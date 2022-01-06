@@ -7,14 +7,14 @@ export default {
   data() {
     return {
       userInfo: {
-        userName: 'user027',
-        status: undefined
+        userName: 'tester1',
+        userStatus: undefined
         },
     }
   },
   methods: {
     lockUser() {
-      this.userInfo.status = '03';
+      this.userInfo.userStatus = 'L';
       setUserStatus(this.userInfo).then(response => {
          this.$message({
            message: '锁定成功',
@@ -25,7 +25,7 @@ export default {
       })
     },
     unlockUser() {
-      this.userInfo.status = '01';
+      this.userInfo.userStatus = 'A';
         setUserStatus(this.userInfo).then(response => {
           this.$message({
             message: '解锁成功',

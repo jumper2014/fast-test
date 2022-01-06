@@ -7,9 +7,9 @@ public class MySQL {
     public static final String dbUsername = "root";
     public static final String dbPassword ="123456";
 
-    public static final String createFileDbUrl = "jdbc:mysql://localhost:3306/test";
-    public static final String crudDbUrl = "jdbc:mysql://localhost:3306/crud";
-    public static final String dbopDbUrl = "jdbc:mysql://localhost:3306/dbop";
+    public static final String createFileDbUrl = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
+    public static final String crudDbUrl = "jdbc:mysql://localhost:3306/testflash?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
+    public static final String dbopDbUrl = "jdbc:mysql://localhost:3306/testflash?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
 
 
 

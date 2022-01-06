@@ -23,7 +23,7 @@
 - 数据库操作
   - 数据的增删改查 - done
   - 数据导出成Excel
-  - 执行指定的SQL
+  - 执行指定的SQL - done
 - 测试用例
   - 测试用例转换，XMind到Excel
   - 测试用例转换, 百度脑图km到Excel
