@@ -1,7 +1,7 @@
 package cn.enilu.flash.api.factory;
 
 import cn.enilu.flash.bean.dto.WrkflowDTO;
-import cn.enilu.flash.bean.entity.atool.ApsWrkFlw;
+import cn.enilu.flash.bean.entity.tool.WorkFlow;
 import org.springframework.beans.BeanUtils;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.beans.BeanUtils;
  */
 public class WrkFlowFactory {
 
-    public static ApsWrkFlw createWrkFlow(WrkflowDTO wrkflowDTO, ApsWrkFlw apsWrkFlw) {
+    public static WorkFlow createWrkFlow(WrkflowDTO wrkflowDTO, WorkFlow apsWrkFlw) {
         if (wrkflowDTO == null) {
             return null;
         } else {

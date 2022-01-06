@@ -1,7 +1,7 @@
 package cn.enilu.flash.service.tool;
 
 import cn.enilu.flash.bean.dto.WrkflowDTO;
-import cn.enilu.flash.bean.entity.atool.ApsWrkFlw;
+import cn.enilu.flash.bean.entity.tool.WorkFlow;
 import cn.enilu.flash.cache.CacheDao;
 import cn.enilu.flash.dao.atool.ApsWrkFlwRepository;
 import cn.enilu.flash.service.BaseService;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  * @author enilu
  */
 @Service
-public class ApsWrkFlwService extends BaseService<ApsWrkFlw, Integer, ApsWrkFlwRepository> {
+public class ApsWrkFlwService extends BaseService<WorkFlow, Integer, ApsWrkFlwRepository> {
     private Logger logger = LoggerFactory.getLogger(ApsWrkFlwService.class);
     @Autowired
     private ApsWrkFlwRepository apsWrkFlwRepository;
@@ -27,11 +27,11 @@ public class ApsWrkFlwService extends BaseService<ApsWrkFlw, Integer, ApsWrkFlwR
     private Long tokenExpireTime;
 
 
-    public ApsWrkFlw findByFlowId(Integer flowId) {
+    public WorkFlow findByFlowId(Integer flowId) {
         //由于：@Cacheable标注的方法，如果其所在的类实现了某一个接口，那么该方法也必须出现在接口里面，否则cache无效。
         //具体的原因是， Spring把实现类装载成为Bean的时候，会用代理包装一下，所以从Spring Bean的角度看，只有接口里面的方法是可见的，其它的都隐藏了，自然课看不到实现类里面的非接口方法，@Cacheable不起作用。
         //所以这里手动控制缓存
-        ApsWrkFlw apsWrkFlw = cacheDao.hget(CacheDao.SESSION, flowId, ApsWrkFlw.class);
+        WorkFlow apsWrkFlw = cacheDao.hget(CacheDao.SESSION, flowId, WorkFlow.class);
         if (apsWrkFlw != null) {
             return apsWrkFlw;
         }
@@ -42,21 +42,21 @@ public class ApsWrkFlwService extends BaseService<ApsWrkFlw, Integer, ApsWrkFlwR
 
 
     @Override
-    public ApsWrkFlw update(ApsWrkFlw record) {
-        ApsWrkFlw apsWrkFlw = super.update(record);
-        cacheDao.hset(CacheDao.SESSION, apsWrkFlw.getFlowId(), apsWrkFlw);
-        return apsWrkFlw;
+    public WorkFlow update(WorkFlow record) {
+        WorkFlow workFlow = super.update(record);
+        cacheDao.hset(CacheDao.SESSION, workFlow.getFlowId(), workFlow);
+        return workFlow;
     }
 
 
-    public ApsWrkFlw update(WrkflowDTO wrkflowDTO) {
-        ApsWrkFlw  apsWrkFlw = apsWrkFlwRepository.findByFlowId(wrkflowDTO.getFlowId());
-        apsWrkFlw.setFlowDesc(wrkflowDTO.getFlowDesc());
-        apsWrkFlw.setDefaultResult(wrkflowDTO.getDefaultResult());
-        apsWrkFlw.setFlowStatus(wrkflowDTO.getFlowStatus());
-        apsWrkFlw.setStepCount(Integer.valueOf(wrkflowDTO.getStepCount()));
-        update(apsWrkFlw);
-        return apsWrkFlw;
+    public WorkFlow update(WrkflowDTO wrkflowDTO) {
+        WorkFlow workFlow = apsWrkFlwRepository.findByFlowId(wrkflowDTO.getFlowId());
+        workFlow.setFlowDesc(wrkflowDTO.getFlowDesc());
+        workFlow.setDefaultResult(wrkflowDTO.getDefaultResult());
+        workFlow.setFlowStatus(wrkflowDTO.getFlowStatus());
+        workFlow.setStepCount(Integer.valueOf(wrkflowDTO.getStepCount()));
+        update(workFlow);
+        return workFlow;
     }
 
 

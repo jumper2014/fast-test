@@ -1,7 +1,7 @@
 package cn.enilu.flash.dao.atool;
 
 
-import cn.enilu.flash.bean.entity.atool.TbUser;
+import cn.enilu.flash.bean.entity.tool.TbUser;
 import cn.enilu.flash.dao.BaseRepository;
 import org.springframework.data.jpa.repository.Query;
 

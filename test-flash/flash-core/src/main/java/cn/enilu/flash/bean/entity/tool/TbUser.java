@@ -1,6 +1,5 @@
-package cn.enilu.flash.bean.entity.atool;
+package cn.enilu.flash.bean.entity.tool;
 
-import cn.enilu.flash.bean.entity.BaseEntity;
 import lombok.Data;
 import org.hibernate.annotations.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;

@@ -1,18 +1,17 @@
-package cn.enilu.flash.bean.entity.atool;
+package cn.enilu.flash.bean.entity.tool;
 
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * aps work flow config
  */
 @Entity
-@Table(name = "aps_wrk_flw")
+@Table(name = "work_flow")
 @Data
-public class ApsWrkFlw implements Serializable {
+public class WorkFlow implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

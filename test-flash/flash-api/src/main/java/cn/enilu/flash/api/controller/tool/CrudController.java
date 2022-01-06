@@ -6,7 +6,7 @@ import cn.enilu.flash.api.controller.BaseController;
 import cn.enilu.flash.bean.dto.WrkflowDTO;
 import cn.enilu.flash.api.factory.WrkFlowFactory;
 import cn.enilu.flash.bean.constant.factory.PageFactory;
-import cn.enilu.flash.bean.entity.atool.ApsWrkFlw;
+import cn.enilu.flash.bean.entity.tool.WorkFlow;
 import cn.enilu.flash.bean.enumeration.BizExceptionEnum;
 import cn.enilu.flash.bean.exception.ApplicationException;
 import cn.enilu.flash.bean.vo.front.Rets;
@@ -54,11 +54,11 @@ public class CrudController extends BaseController {
         System.out.println("/add");
         if (wrkflowDTO.getFlowId() != null) {
             // 判断是否重复
-            ApsWrkFlw flow = apsWrkFlwService.findByFlowId(wrkflowDTO.getFlowId());
+            WorkFlow flow = apsWrkFlwService.findByFlowId(wrkflowDTO.getFlowId());
             if (flow != null) {
                 apsWrkFlwService.update(wrkflowDTO);
             } else {
-                apsWrkFlwService.insert(WrkFlowFactory.createWrkFlow(wrkflowDTO, new ApsWrkFlw()));
+                apsWrkFlwService.insert(WrkFlowFactory.createWrkFlow(wrkflowDTO, new WorkFlow()));
             }
 
         }
