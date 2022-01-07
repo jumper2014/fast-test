@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d73e3031-29f1-4a11-9cef-01dfc28dadc0" name="Changes" comment="" />
+    <list default="true" id="d73e3031-29f1-4a11-9cef-01dfc28dadc0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-client/src/test/java/com/zyt/dubbo/client/ClientApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-client/src/test/java/com/zyt/dubbo/client/ClientApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="23JrKz9CZ68kvEvCN4SLhhgERwE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -18,8 +28,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ClientApplicationTests">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zyt.dubbo.server.ServerApplication" />
       <module name="dubbo-server" />
@@ -33,8 +45,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClientApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dubbo-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zyt.dubbo.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zyt.dubbo.client" />
+      <option name="MAIN_CLASS_NAME" value="com.zyt.dubbo.client.ClientApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClientApplicationTests" />
         <item itemvalue="Application.ServerApplication" />
       </list>
     </recent_temporary>
@@ -49,5 +77,16 @@
       <updated>1641462971540</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

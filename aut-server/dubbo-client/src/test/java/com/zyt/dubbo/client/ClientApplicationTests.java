@@ -16,8 +16,8 @@ class ClientApplicationTests {
 	void contextLoads() {
 
 		User user = userService.findUserById(1);
-		System.out.println(user.getUsername());
 		System.out.println(user.getId());
+		System.out.println(user.getUsername());
 		System.out.println(user.getPassword());
 		System.out.println(user.getTel());
 
