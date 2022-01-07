@@ -130,13 +130,13 @@ public class WriteToExcel {
             row = sheet.createRow(i + 1);
             // 第一列为测试用例的路径
             HSSFCell c1 = row.createCell(1 - 1);
-            c1.setCellValue("CME-FT-Aquaman");
+            c1.setCellValue("Feature Team 1");
             HSSFCell c2 = row.createCell(2 - 1);
             c2.setCellValue("");
             HSSFCell c3 = row.createCell(3 - 1);
             c3.setCellValue("Development");
             HSSFCell c4 = row.createCell(4 - 1);
-            c4.setCellValue("@mastercard.com");
+            c4.setCellValue("me@ft.com");
             HSSFCell c5 = row.createCell(5 - 1);
             c5.setCellValue("");
             HSSFCell c6 = row.createCell(6 - 1);
