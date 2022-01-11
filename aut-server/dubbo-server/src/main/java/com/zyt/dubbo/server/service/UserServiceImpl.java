@@ -11,9 +11,10 @@ public class UserServiceImpl implements UserService {
     public User findUserById(Integer id) {
         User user = new User();
         user.setId(id);
-        user.setUsername("zyt");
-        user.setPassword("123456");
-        user.setTel("13810002000");
+        user.setUsername("User" + id);
+        user.setPassword("Passwd" + id );
+        user.setTel("13811112222");
+        user.setAddress("Test street No. " + id);
         return user;
     }
 }
