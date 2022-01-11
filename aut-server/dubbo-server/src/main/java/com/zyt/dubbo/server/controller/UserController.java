@@ -16,14 +16,26 @@ public class UserController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public User userById(@PathVariable("id") Integer id) {
+    public User getUserById(@PathVariable("id") Integer id) {
         User user = userService.findUserById(id);
         return user;
     }
 
-    @GetMapping("/hello")
-    public User hello() {
-        User user = userService.findUserById(10);
+    @PostMapping("/{id}")
+    public User addUserById(@PathVariable("id") Integer id)  {
+        User user = userService.findUserById(id);
+        return user;
+    }
+
+    @PutMapping("/{id}")
+    public User updateUserById(@PathVariable("id") Integer id)  {
+        User user = userService.findUserById(id);
+        return user;
+    }
+
+    @DeleteMapping("/{id}")
+    public User deleteUserById(@PathVariable("id") Integer id)  {
+        User user = userService.findUserById(id);
         return user;
     }
 
