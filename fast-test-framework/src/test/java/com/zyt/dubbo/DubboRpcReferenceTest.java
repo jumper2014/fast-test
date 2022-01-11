@@ -1,5 +1,6 @@
-package com.zyt;
+package com.zyt.dubbo;
 
+import com.zyt.App;
 import com.zyt.dubbo.api.model.User;
 import com.zyt.dubbo.api.service.UserService;
 import org.apache.dubbo.config.annotation.Reference;
