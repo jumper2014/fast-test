@@ -13,6 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
+import static com.zyt.constant.url.USER_URL;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class )
 public class OkHttpTest {
@@ -26,7 +28,7 @@ public class OkHttpTest {
     public void getRequest() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://localhost:8081/user/111")
+                .url(USER_URL)
                 .build();
         Response response = client.newCall(request).execute();
         if (response.isSuccessful()) {

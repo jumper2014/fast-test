@@ -11,8 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d73e3031-29f1-4a11-9cef-01dfc28dadc0" name="Changes" comment="add http controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fast-test-framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fast-test-framework/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fast-test-framework/src/test/java/com/zyt/http/OkHttpTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fast-test-framework/src/test/java/com/zyt/http/OkHttpTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fast-test-framework/src/test/java/com/zyt/http/RestTemplateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fast-test-framework/src/test/java/com/zyt/http/RestTemplateTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
