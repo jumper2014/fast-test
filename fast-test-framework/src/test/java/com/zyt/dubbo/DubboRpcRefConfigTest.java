@@ -6,7 +6,6 @@ import com.zyt.dubbo.api.service.UserService;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
-import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.bootstrap.DubboBootstrap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
