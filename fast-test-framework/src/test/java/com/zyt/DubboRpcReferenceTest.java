@@ -10,8 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class)
-public class RpcTest {
-    @Reference(interfaceName = "com.zyt.dubbo.api.model.User")
+public class DubboRpcReferenceTest {
+    @Reference
     private UserService userService;
 
     @Test
@@ -21,9 +21,5 @@ public class RpcTest {
         System.out.println(user.getUsername());
         System.out.println(user.getPassword());
         System.out.println(user.getTel());
-
-
-
     }
-
 }
