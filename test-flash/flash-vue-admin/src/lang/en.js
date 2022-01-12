@@ -38,6 +38,7 @@ export default {
     downloadfile: 'Download File',
     jsondiff: 'JSON Diff',
     dbop: 'DB Operation',
+    link: 'Link',
 
   },
   navbar: {

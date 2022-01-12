@@ -39,6 +39,7 @@ export default {
     downloadfile: '下载文件',
     jsondiff: 'JSON对比',
     dbop: 'DB操作',
+    link: '常用链接',
 
   },
   navbar: {
