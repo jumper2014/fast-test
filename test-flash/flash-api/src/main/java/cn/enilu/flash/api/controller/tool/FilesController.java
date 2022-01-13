@@ -1,6 +1,7 @@
 package cn.enilu.flash.api.controller.tool;
 
 import cn.enilu.flash.api.helper.ReadJson;
+import cn.enilu.flash.api.helper.ReadXml;
 import cn.enilu.flash.api.helper.WriteToExcel;
 import cn.enilu.flash.bean.vo.front.Rets;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -101,6 +102,45 @@ public class FilesController {
         }
         return Rets.success(xlsFile + ".xls");
     }
+
+    @RequestMapping("/xm2xls")
+    public Object xm2xlsFile(@RequestParam("file") MultipartFile mf) {
+        String xlsFile="";
+        File fileDir = new File(rootPath);
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        if (!fileDir.exists() && !fileDir.isDirectory()) {
+            fileDir.mkdirs();
+        }
+        try {
+            if (mf != null) {
+
+                try {
+
+                    String storagePath = rootPath + uuid + mf.getOriginalFilename();
+                    logger.info("上传的文件：" + mf.getName() + "," + mf.getContentType() + "," + mf.getOriginalFilename()
+                            + "，保存的路径为：" + storagePath);
+                    Streams.copy(mf.getInputStream(), new FileOutputStream(storagePath), true);
+                    xlsFile = (uuid + mf.getOriginalFilename()).replace(".xmind", "");
+                    List<List<String>> allCaseList = ReadXml.readXml(storagePath);
+                    System.out.printf("Total case number is: " + allCaseList.size());
+                    WriteToExcel.writeToExcel(allCaseList, rootPath, xlsFile);
+                    return Rets.success(xlsFile + ".xls");
+
+                    //或者下面的
+                    // Path path = Paths.get(storagePath);
+                    //Files.write(path,multipartFiles[i].getBytes());
+                } catch (IOException e) {
+                    logger.error(ExceptionUtils.getFullStackTrace(e));
+                }
+            }
+
+
+        } catch (Exception e) {
+            return Rets.failure(e.getMessage());
+        }
+        return Rets.success(xlsFile + ".xls");
+    }
+
 
     /**
      * http://localhost:8080/file/download?fileName=新建文本文档.txt

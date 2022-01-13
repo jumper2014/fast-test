@@ -40,7 +40,8 @@ export default {
     jsondiff: 'JSON对比',
     dbop: 'DB操作',
     link: '常用链接',
-    casetransfer: '用例转换',
+    kmcasetransfer: '百度脑图用例转换',
+    xmcasetransfer: 'Xmind用例转换',
 
   },
   navbar: {
