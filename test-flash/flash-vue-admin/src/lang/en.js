@@ -39,6 +39,7 @@ export default {
     jsondiff: 'JSON Diff',
     dbop: 'DB Operation',
     link: 'Link',
+    casetransfer: 'Case Transfer',
 
   },
   navbar: {

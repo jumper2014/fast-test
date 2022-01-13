@@ -32,6 +32,7 @@ public class FilesController {
     //在文件操作中，不用/或者\最好，推荐使用File.separator
     private final static String fileDir = "files";
     private final static String rootPath = System.getProperty("user.home") + File.separator + fileDir + File.separator;
+    String storagePath ;
 
     @RequestMapping("/upload")
     public Object uploadFile(@RequestParam("file") MultipartFile[] multipartFiles) {
@@ -44,7 +45,7 @@ public class FilesController {
                 for (int i = 0; i < multipartFiles.length; i++) {
                     try {
                         //以原来的名称命名,覆盖掉旧的
-                        String storagePath = rootPath + multipartFiles[i].getOriginalFilename();
+                        storagePath = rootPath + multipartFiles[i].getOriginalFilename();
                         logger.info("上传的文件：" + multipartFiles[i].getName() + "," + multipartFiles[i].getContentType() + "," + multipartFiles[i].getOriginalFilename()
                                 + "，保存的路径为：" + storagePath);
                         Streams.copy(multipartFiles[i].getInputStream(), new FileOutputStream(storagePath), true);
@@ -60,12 +61,14 @@ public class FilesController {
         } catch (Exception e) {
             return Rets.failure(e.getMessage());
         }
-        return Rets.success("上传成功!");
+        return Rets.success(storagePath);
     }
 
     @RequestMapping("/km2xls")
     public Object km2xlsFile(@RequestParam("file") MultipartFile mf) {
+        String xlsFile="";
         File fileDir = new File(rootPath);
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         if (!fileDir.exists() && !fileDir.isDirectory()) {
             fileDir.mkdirs();
         }
@@ -73,16 +76,16 @@ public class FilesController {
             if (mf != null) {
 
                 try {
-                    String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+
                     String storagePath = rootPath + uuid + mf.getOriginalFilename();
                     logger.info("上传的文件：" + mf.getName() + "," + mf.getContentType() + "," + mf.getOriginalFilename()
                             + "，保存的路径为：" + storagePath);
                     Streams.copy(mf.getInputStream(), new FileOutputStream(storagePath), true);
-                    String xlsFile = (uuid + mf.getOriginalFilename()).replace(".km", "");
+                    xlsFile = (uuid + mf.getOriginalFilename()).replace(".km", "");
                     List<List<String>> allCaseList = ReadJson.readJson(storagePath);
                     System.out.printf("Total case number is: " + allCaseList.size());
                     WriteToExcel.writeToExcel(allCaseList, rootPath, xlsFile);
-                    return Rets.success(xlsFile);
+                    return Rets.success(xlsFile + ".xls");
 
                     //或者下面的
                     // Path path = Paths.get(storagePath);
@@ -96,7 +99,7 @@ public class FilesController {
         } catch (Exception e) {
             return Rets.failure(e.getMessage());
         }
-        return Rets.success("上传成功!");
+        return Rets.success(xlsFile + ".xls");
     }
 
     /**
