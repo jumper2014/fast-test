@@ -41,7 +41,7 @@ export default {
     dbop: 'DB操作',
     link: '常用链接',
     kmcasetransfer: '百度脑图用例转换',
-    xmcasetransfer: 'Xmind用例转换',
+    xmcasetransfer: 'XMind用例转换',
 
   },
   navbar: {

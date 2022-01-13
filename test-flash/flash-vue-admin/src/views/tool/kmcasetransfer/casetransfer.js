@@ -8,7 +8,7 @@ export default {
       },
        uploadUrl: getApiUrl() + '/files/km2xls',
        fileList: [],
-       fileOnServer:'转换后的文件名',
+       fileOnServer:'',
     }
   },
 

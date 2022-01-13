@@ -17,6 +17,12 @@ export default {
     handleDownLoad() {
       // window.location.href = `/files/download?fileName=` + this.form.fileName
     },
+    handleSuccess(response, file, fileList) {
+      this.$message({
+        message: '文件生成成功',
+        type: 'success'
+      })
+    },
 
       handleExceed(files, fileList) {
         this.$message.warning(`当前限制选择 5 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);

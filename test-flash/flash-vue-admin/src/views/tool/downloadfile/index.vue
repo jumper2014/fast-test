@@ -1,7 +1,7 @@
 <template>
-  <div style="top: 100px; width: 300px">
+  <div style="top: 100px; width: 300px" class="app-container">
     <el-form :model="form" label-width="120px">
-      <el-form-item label="请输入文件名" required>
+      <el-form-item label="请输入服务上的文件名" required>
         <el-input
           v-model="form.fileName"
           auto-complete="off"

@@ -40,7 +40,7 @@ export default {
     dbop: 'DB Operation',
     link: 'Link',
     kmcasetransfer: 'Baidu Case Transfer',
-    xmcasetransfer: 'Xmind Case Transfer',
+    xmcasetransfer: 'XMind Case Transfer',
 
   },
   navbar: {
