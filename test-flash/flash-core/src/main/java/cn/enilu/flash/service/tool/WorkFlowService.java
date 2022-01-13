@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
  * @author enilu
  */
 @Service
-public class ApsWrkFlwService extends BaseService<WorkFlow, Integer, ApsWrkFlwRepository> {
-    private Logger logger = LoggerFactory.getLogger(ApsWrkFlwService.class);
+public class WorkFlowService extends BaseService<WorkFlow, Integer, ApsWrkFlwRepository> {
+    private Logger logger = LoggerFactory.getLogger(WorkFlowService.class);
     @Autowired
     private ApsWrkFlwRepository apsWrkFlwRepository;
     @Autowired

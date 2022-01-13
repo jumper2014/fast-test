@@ -42,9 +42,13 @@
 
 #### 测试框架示例
 - RPC接口测试 - 完成
-- HTTP接口测试
 - 集成Allure测试报告
-
+- 常见测试相关库使用示例
+  - AssertJ - 完成
+  - HttpClient - 完成
+  - OkHttp - 完成
+  - RestAssured - 完成
+  - RestTemplate - 完成
 
 ### 感谢
 - [感谢web-flash提供管理后台功能支持](https://github.com/enilu/web-flash)

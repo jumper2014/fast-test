@@ -11,7 +11,7 @@ import cn.enilu.flash.bean.enumeration.BizExceptionEnum;
 import cn.enilu.flash.bean.exception.ApplicationException;
 import cn.enilu.flash.bean.vo.front.Rets;
 import cn.enilu.flash.bean.vo.query.SearchFilter;
-import cn.enilu.flash.service.tool.ApsWrkFlwService;
+import cn.enilu.flash.service.tool.WorkFlowService;
 import cn.enilu.flash.utils.BeanUtil;
 import cn.enilu.flash.utils.factory.Page;
 import cn.enilu.flash.warpper.UserWrapper;
@@ -31,7 +31,7 @@ import java.util.List;
 @RequestMapping("/crud")
 public class CrudController extends BaseController {
     @Autowired
-    ApsWrkFlwService apsWrkFlwService;
+    WorkFlowService workFlowService;
 
     @DSource(value = "crud")
     @GetMapping("/list")
@@ -42,7 +42,7 @@ public class CrudController extends BaseController {
         page.addFilter("flowId", SearchFilter.Operator.LIKE, flowId);
         page.addFilter("flowDesc", SearchFilter.Operator.LIKE, flowDesc);
         page.setSort(Sort.by(Sort.Direction.DESC, "flowId"));
-        page = apsWrkFlwService.queryPage(page);
+        page = workFlowService.queryPage(page);
         List list = (List) new UserWrapper(BeanUtil.objectsToMaps(page.getRecords())).warp();
         page.setRecords(list);
         return Rets.success(page);
@@ -54,11 +54,11 @@ public class CrudController extends BaseController {
         System.out.println("/add");
         if (wrkflowDTO.getFlowId() != null) {
             // 判断是否重复
-            WorkFlow flow = apsWrkFlwService.findByFlowId(wrkflowDTO.getFlowId());
+            WorkFlow flow = workFlowService.findByFlowId(wrkflowDTO.getFlowId());
             if (flow != null) {
-                apsWrkFlwService.update(wrkflowDTO);
+                workFlowService.update(wrkflowDTO);
             } else {
-                apsWrkFlwService.insert(WrkFlowFactory.createWrkFlow(wrkflowDTO, new WorkFlow()));
+                workFlowService.insert(WrkFlowFactory.createWrkFlow(wrkflowDTO, new WorkFlow()));
             }
 
         }
@@ -71,7 +71,7 @@ public class CrudController extends BaseController {
             if (flowId == null) {
                 throw new ApplicationException(BizExceptionEnum.REQUEST_NULL);
             }
-            apsWrkFlwService.delete(flowId);
+            workFlowService.delete(flowId);
             return Rets.success();
         }
 
