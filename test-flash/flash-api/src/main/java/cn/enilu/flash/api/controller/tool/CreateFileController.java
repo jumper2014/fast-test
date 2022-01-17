@@ -4,6 +4,7 @@ import cn.enilu.flash.api.controller.BaseController;
 import cn.enilu.flash.api.helper.DDate;
 import cn.enilu.flash.bean.vo.front.Rets;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,14 +17,14 @@ import java.io.IOException;
  * 测试工具
  */
 @RestController
-@RequestMapping("/createfile")
+@RequestMapping("/createfile/create")
 public class CreateFileController extends BaseController {
 
     @Value("${resource.file.dir}")
     public String resourceDir;
 
-    @GetMapping("/create")
-    public Object create(Integer total) {
+    @GetMapping
+    public Object create(@Param("total") Integer total) {
         /*
     自动生成导入商户的文件，通过指定的total参数来确定生成文件的记录行数
      */
