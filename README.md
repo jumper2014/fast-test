@@ -52,6 +52,7 @@
 - 常见Java库使用示例
   - Quartz - 完成
   - Ehcache - 完成
+  - 读取yaml文件 - 完成
 
 ### 感谢
 - [感谢web-flash提供管理后台功能支持](https://github.com/enilu/web-flash)

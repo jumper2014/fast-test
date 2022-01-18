@@ -1,0 +1,8 @@
+age: 100
+name: Jack
+params:
+  event: what's up
+  url:  http://www.fasttest.com
+favoriteBooks:
+  - Gone with the wind
+  - The Little Prince
