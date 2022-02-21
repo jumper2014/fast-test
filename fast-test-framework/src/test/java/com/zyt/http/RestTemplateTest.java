@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
-import static com.zyt.constant.url.USER_URL;
+import static com.zyt.constant.Url.USER_URL;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class )

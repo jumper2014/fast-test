@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
-import static com.zyt.constant.url.USER_URL;
+import static com.zyt.constant.Url.USER_URL;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class )

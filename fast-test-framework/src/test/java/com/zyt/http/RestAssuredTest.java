@@ -2,8 +2,6 @@ package com.zyt.http;
 
 
 import com.zyt.App;
-import io.restassured.RestAssured.*;
-import io.restassured.matcher.RestAssuredMatchers.*;
 import okhttp3.MediaType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 
-import static com.zyt.constant.url.USER_URL;
+import static com.zyt.constant.Url.USER_URL;
 import static io.restassured.RestAssured.given;
 
 @RunWith(SpringRunner.class)

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <springProperty scope="context" name="application.name" source="spring.application.name" />
+    <springProperty scope="context" name="log.path" source="apps.log.path" />
+    <springProperty scope="context" name="idc" source="app.idc" />
+
+    <appender name="access" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/${application.name}_access.log</file>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder" />
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 按天回滚 daily -->
+            <fileNamePattern>${log.path}/${application.name}_access.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 日志最大的历史 30天 -->
+            <maxHistory>60</maxHistory>
+            <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
+            <!--<totalSizeCap>1GB</totalSizeCap>-->
+        </rollingPolicy>
+    </appender>
+
+    <appender name="alarm" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/${application.name}_alarm.log</file>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder" />
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 按天回滚 daily -->
+            <fileNamePattern>${log.path}/${application.name}_alarm.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 日志最大的历史 30天 -->
+            <maxHistory>60</maxHistory>
+            <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
+            <!--<totalSizeCap>1GB</totalSizeCap>-->
+        </rollingPolicy>
+    </appender>
+
+    <appender name="ASYNC-ALARM" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>1024</queueSize>
+        <appender-ref ref="alarm" />
+    </appender>
+
+    <appender name="ASYNC-ACCESS" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>1024</queueSize>
+        <appender-ref ref="access" />
+    </appender>
+
+    <logger name="accesslog" additivity="true" level="INFO">
+        <appender-ref ref="ASYNC-ACCESS" />
+    </logger>
+
+    <logger name="alarmlog" additivity="true" level="INFO">
+        <appender-ref ref="ASYNC-ALARM" />
+    </logger>
+
+    <property name = "ENCODER_PATTERN" value = "%d{yyyy-MM-dd  HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 控制输出流对象，默认System.out 改为System.err-->
+        <target>System.err</target>
+        <!-- 日志消息格式配置-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${ENCODER_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <!-- root Logger 配置-->
+    <root>
+        <appender-ref ref="alarm"></appender-ref>
+    </root>
+
+
+</configuration>

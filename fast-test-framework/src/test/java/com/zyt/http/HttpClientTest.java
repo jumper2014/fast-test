@@ -1,7 +1,6 @@
 package com.zyt.http;
 
 import com.zyt.App;
-import okhttp3.MediaType;
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
@@ -14,12 +13,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 
 
 import java.io.IOException;
 
-import static com.zyt.constant.url.USER_URL;
+import static com.zyt.constant.Url.USER_URL;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class )
