@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * Hello world!
  */
 @SpringBootApplication
-@ComponentScan(value = "com.zyt.weyland")
+@ComponentScan(value = "com.zyt")
 public class App {
     public static final Logger log = LoggerFactory.getLogger(App.class);
     public static void main(String[] args) {
