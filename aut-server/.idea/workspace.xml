@@ -10,9 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d73e3031-29f1-4a11-9cef-01dfc28dadc0" name="Changes" comment="add swagger example">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/DataType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/ParamType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/ParamType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/config/Swagger2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/config/Swagger2Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646106695941</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add swagger example">
+      <created>1646113964533</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1646113964534</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
