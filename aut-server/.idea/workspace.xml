@@ -11,7 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d73e3031-29f1-4a11-9cef-01dfc28dadc0" name="Changes" comment="add http controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fast-test-framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fast-test-framework/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-api/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/dubbo_api_jar/dubbo-api.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +41,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -41,7 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../springBoot-demos/springboot-swagger" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.17931035" />

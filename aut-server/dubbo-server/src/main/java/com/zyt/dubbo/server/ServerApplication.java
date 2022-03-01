@@ -32,7 +32,7 @@ public class ServerApplication {
 				"系统运行环境 : \t" +active + "\n\t" +
 				"本地访问地址 : \thttp://localhost:" + port + path + "/\n\t" +
 				"外部访问地址 : \thttp://" + ip + ":" + port + path + "/\n\t" +
-				"在线文档地址 : \thttp://" + ip + ":" + port + path + "/swagger-ui/index.html\n" +
+				"在线文档地址 : \thttp://" + ip + ":" + port + path + "/swagger-ui.html\n" +
 				"----------------------------------------------------------");
 	}
 
