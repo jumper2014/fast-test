@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path="/user", produces="application/json")
-@Api(tags = "1.0.0-SNAPSHOT", description = "用户管理", value = "用户管理")
+@Api(tags = "API", value = "用户管理")
 //@CrossOrigin(origins="*") // 允许跨域
 public class UserController {
 
