@@ -38,7 +38,7 @@
       <artifactId>dubbo-api</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <scope>system</scope>
-      <systemPath>server-test-framework/libs/dubbo-api.jar</systemPath>
+      <systemPath>${project.basedir}/libs/dubbo-api.jar</systemPath>
       <exclusions>
         <exclusion>
           <groupId>org.apache.log4j</groupId>
