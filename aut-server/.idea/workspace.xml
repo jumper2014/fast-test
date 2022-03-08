@@ -9,13 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d73e3031-29f1-4a11-9cef-01dfc28dadc0" name="Changes" comment="add swagger example">
+    <list default="true" id="d73e3031-29f1-4a11-9cef-01dfc28dadc0" name="Changes" comment="add HTTP configurations">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/ApiResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/DataType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/ParamType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/common/ParamType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/config/Swagger2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/java/com/zyt/dubbo/server/config/Swagger2Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dubbo-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo-server/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ui-test-framework-testng-cucumber" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.17931035" />
@@ -152,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646113964534</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add HTTP configurations">
+      <created>1646121063952</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1646121063952</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +174,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add http controller" />
     <MESSAGE value="add swagger example" />
-    <option name="LAST_COMMIT_MESSAGE" value="add swagger example" />
+    <MESSAGE value="add HTTP configurations" />
+    <option name="LAST_COMMIT_MESSAGE" value="add HTTP configurations" />
   </component>
 </project>
