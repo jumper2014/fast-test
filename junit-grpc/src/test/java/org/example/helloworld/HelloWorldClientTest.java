@@ -28,8 +28,6 @@ import io.grpc.testing.GrpcCleanupRule;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatchers;
 
@@ -41,7 +39,7 @@ import org.mockito.ArgumentMatchers;
  * directExecutor() makes it easier to have deterministic tests.
  *
  */
-@RunWith(JUnit4.class)
+
 public class HelloWorldClientTest {
     /**
      * This rule manages automatic graceful shutdown for the registered servers and channels at the

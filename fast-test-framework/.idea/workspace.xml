@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62c1773a-6346-4633-ac3b-a86571b90c65" name="Changes" comment="update xml configurations" />
+    <list default="true" id="62c1773a-6346-4633-ac3b-a86571b90c65" name="Changes" comment="update xml configurations">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../junit-grpc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../junit-grpc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../junit-grpc/src/test/java/org/example/helloworld/HelloWorldClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../junit-grpc/src/test/java/org/example/helloworld/HelloWorldClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../junit-grpc/src/test/java/org/example/helloworld/HelloWorldServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../junit-grpc/src/test/java/org/example/helloworld/HelloWorldServerTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

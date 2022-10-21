@@ -24,9 +24,9 @@ import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.testing.GrpcCleanupRule;
 import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+
 
 /**
  * Unit tests for {@link HelloWorldServer}.
@@ -36,7 +36,7 @@ import org.junit.runners.JUnit4;
  * directExecutor() makes it easier to have deterministic tests.
 
  */
-@RunWith(JUnit4.class)
+@DisplayName("HelloWorldServerTest")
 public class HelloWorldServerTest {
     /**
      * This rule manages automatic graceful shutdown for the registered servers and channels at the
@@ -50,6 +50,7 @@ public class HelloWorldServerTest {
      * behaviors or state changes from the client side.
      */
     @Test
+    @DisplayName("greeterImpl_replyMessage")
     public void greeterImpl_replyMessage() throws Exception {
         // Generate a unique in-process server name.
         String serverName = InProcessServerBuilder.generateName();
@@ -66,6 +67,6 @@ public class HelloWorldServerTest {
         HelloReply reply =
                 blockingStub.sayHello(HelloRequest.newBuilder().setName( "test name").build());
 
-        assertEquals("Hello test name1", reply.getMessage());
+        assertEquals("Hello test name", reply.getMessage());
     }
 }
