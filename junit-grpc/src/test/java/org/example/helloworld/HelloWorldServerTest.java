@@ -25,6 +25,7 @@ import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.testing.GrpcCleanupRule;
 import org.junit.Rule;
 //import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.DisplayName;
 
@@ -51,7 +52,7 @@ public class HelloWorldServerTest {
      * behaviors or state changes from the client side.
      */
     @Test
-//    @DisplayName("greeterImpl_replyMessage")
+    @DisplayName("greeterImpl_replyMessage111")
     public void greeterImpl_replyMessage() throws Exception {
         // Generate a unique in-process server name.
         String serverName = InProcessServerBuilder.generateName();

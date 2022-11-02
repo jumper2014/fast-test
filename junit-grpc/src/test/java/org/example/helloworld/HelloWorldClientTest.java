@@ -36,6 +36,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatchers;
 
+import java.io.IOException;
+
 /**
  * Unit tests for {@link HelloWorldClient}.
  * For demonstrating how to write gRPC unit test only.
@@ -44,16 +46,15 @@ import org.mockito.ArgumentMatchers;
  * directExecutor() makes it easier to have deterministic tests.
  *
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class HelloWorldClientTest {
     /**
      * This rule manages automatic graceful shutdown for the registered servers and channels at the
      * end of test.
      */
     @Rule
-    public final GrpcCleanupRule grpcCleanup = new GrpcCleanupRule();
+    public static final GrpcCleanupRule grpcCleanup = new GrpcCleanupRule();
 
-    private final GreeterGrpc.GreeterImplBase serviceImpl =
+    private static final GreeterGrpc.GreeterImplBase serviceImpl =
             mock(GreeterGrpc.GreeterImplBase.class, delegatesTo(
                     new GreeterGrpc.GreeterImplBase() {
                         // By default the client will receive Status.UNIMPLEMENTED for all RPCs.
@@ -66,10 +67,10 @@ public class HelloWorldClientTest {
                          }
                     }));
 
-    private HelloWorldClient client;
+    private static HelloWorldClient client;
 
     @BeforeAll
-    public void setUp() throws Exception {
+    public static void setUp() throws IOException {
         // Generate a unique in-process server name.
         String serverName = InProcessServerBuilder.generateName();
 
