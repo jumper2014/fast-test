@@ -24,8 +24,8 @@ import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.testing.GrpcCleanupRule;
 import org.junit.Rule;
-import org.junit.Test;
-//import org.junit.jupiter.api.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.DisplayName;
 
 

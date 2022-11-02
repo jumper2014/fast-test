@@ -25,10 +25,14 @@ import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.stub.StreamObserver;
 import io.grpc.testing.GrpcCleanupRule;
-import org.junit.Before;
+//import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Rule;
-import org.junit.Test;
-//import org.junit.jupiter.api.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatchers;
 
@@ -40,7 +44,7 @@ import org.mockito.ArgumentMatchers;
  * directExecutor() makes it easier to have deterministic tests.
  *
  */
-
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class HelloWorldClientTest {
     /**
      * This rule manages automatic graceful shutdown for the registered servers and channels at the
@@ -64,7 +68,7 @@ public class HelloWorldClientTest {
 
     private HelloWorldClient client;
 
-    @Before
+    @BeforeAll
     public void setUp() throws Exception {
         // Generate a unique in-process server name.
         String serverName = InProcessServerBuilder.generateName();
@@ -88,9 +92,7 @@ public class HelloWorldClientTest {
     @Test
     public void greet_messageDeliveredToServer() {
         ArgumentCaptor<HelloRequest> requestCaptor = ArgumentCaptor.forClass(HelloRequest.class);
-
         client.greet("test name");
-
         verify(serviceImpl)
                 .sayHello(requestCaptor.capture(), ArgumentMatchers.<StreamObserver<HelloReply>>any());
         assertEquals("test name", requestCaptor.getValue().getName());
