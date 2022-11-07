@@ -28,7 +28,8 @@ import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.DisplayName;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Unit tests for {@link HelloWorldServer}.
@@ -40,6 +41,8 @@ import org.junit.jupiter.api.Test;
  */
 //@DisplayName("HelloWorldServerTest")
 public class HelloWorldServerTest {
+
+    private static final Logger logger = Logger.getLogger(HelloWorldServerTest.class.getName());
     /**
      * This rule manages automatic graceful shutdown for the registered servers and channels at the
      * end of test.
@@ -54,6 +57,7 @@ public class HelloWorldServerTest {
     @Test
     @DisplayName("greeterImpl_replyMessage111")
     public void greeterImpl_replyMessage() throws Exception {
+        logger.info("Server test started, greeterImpl_replyMessage()");
         // Generate a unique in-process server name.
         String serverName = InProcessServerBuilder.generateName();
 
