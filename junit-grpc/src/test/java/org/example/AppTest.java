@@ -13,19 +13,19 @@ import org.junit.jupiter.api.Test;
 @Feature("JUnit基本验证")
 public class AppTest 
 {
-    @Issue("bug1")
-    @Story("Story12345")
-    @Severity(SeverityLevel.CRITICAL)
-    @Link(name="静态链接", url="https://www.baidu.com")
-    @Description("用来验证assertTrue的功能")
-    @Test
+//    @Issue("bug1")
+//    @Story("Story12345")
+//    @Severity(SeverityLevel.CRITICAL)
+//    @Link(name="静态链接", url="https://www.baidu.com")
+//    @Description("用来验证assertTrue的功能")
+//    @Test
     public void shouldAnswerWithTrue()
     {
         prepare();
         assertTrue( true );
     }
 
-    @Step("准备工作")
+//    @Step("准备工作")
     public void prepare() {
 
     }

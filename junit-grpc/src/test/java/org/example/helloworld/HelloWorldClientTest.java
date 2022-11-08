@@ -26,10 +26,12 @@ import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.stub.StreamObserver;
 import io.grpc.testing.GrpcCleanupRule;
 //import org.junit.Before;
+import io.qameta.allure.*;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 //import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -46,6 +48,8 @@ import java.io.IOException;
  * directExecutor() makes it easier to have deterministic tests.
  *
  */
+@Epic("Epic for Automation framework")
+@Feature("Feature for JUnit")
 public class HelloWorldClientTest {
     /**
      * This rule manages automatic graceful shutdown for the registered servers and channels at the
@@ -90,6 +94,12 @@ public class HelloWorldClientTest {
      * To test the client, call from the client against the fake server, and verify behaviors or state
      * changes from the server side.
      */
+    @DisplayName("Test GRPC Client")
+    @Issue("bug0002")
+    @Story("Story0002")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(name="静态链接sample", url="https://www.baidu.com")
+    @Description("验证grpc client正确发送响应")
     @Test
     public void greet_messageDeliveredToServer() {
         ArgumentCaptor<HelloRequest> requestCaptor = ArgumentCaptor.forClass(HelloRequest.class);

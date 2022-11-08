@@ -19,6 +19,7 @@ package org.example.helloworld;
 
 import static org.junit.Assert.assertEquals;
 
+import io.qameta.allure.*;
 import org.example.helloworld.HelloWorldServer.GreeterImpl;
 import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
@@ -40,6 +41,8 @@ import java.util.logging.Logger;
 
  */
 //@DisplayName("HelloWorldServerTest")
+@Epic("Epic for Automation framework")
+@Feature("Feature for JUnit")
 public class HelloWorldServerTest {
 
     private static final Logger logger = Logger.getLogger(HelloWorldServerTest.class.getName());
@@ -54,8 +57,13 @@ public class HelloWorldServerTest {
      * To test the server, make calls with a real stub using the in-process channel, and verify
      * behaviors or state changes from the client side.
      */
+    @DisplayName("Test GRPC Server")
+    @Issue("bug0001")
+    @Story("Story0001")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(name="静态链接sample", url="https://www.baidu.com")
+    @Description("验证grpc server正确返回响应的功能")
     @Test
-    @DisplayName("greeterImpl_replyMessage111")
     public void greeterImpl_replyMessage() throws Exception {
         logger.info("Server test started, greeterImpl_replyMessage()");
         // Generate a unique in-process server name.
