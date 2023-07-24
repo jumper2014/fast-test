@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.enilu.flash.api.mds.mapper.test02.TransactionMapping2">
+
+	<insert id="save" parameterType="cn.enilu.flash.api.mds.bean.TeachersBean">
+		insert into
+		cs_teacher
+		values(#{id},#{teachername},#{classid})
+	</insert>
+
+</mapper>
