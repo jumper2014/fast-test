@@ -19,6 +19,13 @@
     </properties>
 
     <dependencies>
+        <!-- FastTest测试平台 -->
+        <dependency>
+            <groupId>me.zhengjie</groupId>
+            <artifactId>fasttest</artifactId>
+            <version>2.7</version>
+        </dependency>
+
         <!-- 代码生成模块 -->
         <dependency>
             <groupId>me.zhengjie</groupId>
