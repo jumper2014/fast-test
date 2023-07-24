@@ -17,4 +17,12 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>me.zhengjie</groupId>
+            <artifactId>eladmin-tools</artifactId>
+            <version>2.7</version>
+        </dependency>
+    </dependencies>
+
 </project>
