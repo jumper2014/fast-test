@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: localhost    Database: testflash
+-- Host: localhost    Database: demo
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -50,10 +50,9 @@ DROP TABLE IF EXISTS `work_flow`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `work_flow` (
   `flow_id` int NOT NULL AUTO_INCREMENT,
-  `flow_desc` varchar(64) NOT NULL,
-  `step_count` smallint DEFAULT '1',
+  `flow_name` varchar(64) NOT NULL,
   `flow_status` varchar(1) DEFAULT NULL,
-  `default_result` varchar(1) DEFAULT NULL,
+  `create_time` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`flow_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100006 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -64,7 +63,7 @@ CREATE TABLE `work_flow` (
 
 LOCK TABLES `work_flow` WRITE;
 /*!40000 ALTER TABLE `work_flow` DISABLE KEYS */;
-INSERT INTO `work_flow` VALUES (100000,'流程1',1,'1','P'),(100001,'流程3',3,'3','F'),(100002,'老流程',10,'1','P');
+INSERT INTO `work_flow` VALUES (100000,'流程1','1',NULL),(100001,'流程3','3',NULL),(100002,'老流程','1',NULL);
 /*!40000 ALTER TABLE `work_flow` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -77,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-24 13:51:21
+-- Dump completed on 2023-07-24 15:34:54
