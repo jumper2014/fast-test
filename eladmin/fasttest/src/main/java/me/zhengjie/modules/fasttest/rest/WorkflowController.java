@@ -18,6 +18,7 @@ package me.zhengjie.modules.fasttest.rest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import me.zhengjie.annotation.AnonymousAccess;
 import me.zhengjie.annotation.Log;
 import me.zhengjie.exception.BadRequestException;
 import me.zhengjie.modules.fasttest.domain.Workflow;
@@ -57,7 +58,8 @@ public class WorkflowController {
 
     @ApiOperation("查询流程")
     @GetMapping
-    @PreAuthorize("@el.check('workflow:list','user:list')")
+//    @PreAuthorize("@el.check('workflow:list','user:list')")
+    @AnonymousAccess
     public ResponseEntity<PageResult<WorkflowDto>> queryWorkflow(WorkflowQueryCriteria criteria, Pageable pageable){
         return new ResponseEntity<>(workflowService.queryAll(criteria, pageable),HttpStatus.OK);
     }

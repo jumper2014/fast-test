@@ -9,9 +9,9 @@
     <el-table ref="table" v-loading="crud.loading" :data="crud.data" style="width: 100%;" @selection-change="crud.selectionChangeHandler">
       <el-table-column type="selection" width="55" />
       <el-table-column prop="name" label="流程名称" />
-      <el-table-column prop="jobSort" label="流程编号">
+      <el-table-column prop="flowId" label="流程编号">
         <template slot-scope="scope">
-          {{ scope.row.jobSort }}
+          {{ scope.row.flowId }}
         </template>
       </el-table-column>
       <el-table-column prop="status" label="流程状态" align="center">
@@ -27,7 +27,7 @@
       <el-table-column prop="createTime" label="创建日期" />
       <!--   编辑与删除   -->
       <el-table-column
-        v-if="checkPer(['admin','job:edit','job:del'])"
+        v-if="checkPer(['admin','workflow:edit','workflow:del'])"
         label="操作"
         width="130px"
         align="center"
@@ -44,12 +44,12 @@
     <!--分页组件-->
     <pagination />
     <!--表单渲染-->
-    <eForm :job-status="dict.job_status" />
+    <eForm :flow-status="dict.flow_status" />
   </div>
 </template>
 
 <script>
-import crudJob from '@/api/system/job'
+import crudWorkflow from '@/api/fasttest/workflow'
 import eHeader from './module/header'
 import eForm from './module/form'
 import CRUD, { presenter } from '@crud/crud'
@@ -57,40 +57,40 @@ import crudOperation from '@crud/CRUD.operation'
 import pagination from '@crud/Pagination'
 import udOperation from '@crud/UD.operation'
 export default {
-  name: 'Job',
+  name: 'Workflow',
   components: { eHeader, eForm, crudOperation, pagination, udOperation },
   cruds() {
     return CRUD({
-      title: '岗位',
+      title: '流程',
       url: 'api/workflow',
-      sort: ['id,desc'],
-      crudMethod: { ...crudJob }
+      sort: ['id'],
+      crudMethod: { ...crudWorkflow }
     })
   },
   mixins: [presenter()],
   // 数据字典
-  dicts: ['job_status'],
+  dicts: ['flow_status'],
   data() {
     return {
       permission: {
-        add: ['admin', 'job:add'],
-        edit: ['admin', 'job:edit'],
-        del: ['admin', 'job:del']
+        add: ['admin', 'workflow:add'],
+        edit: ['admin', 'workflow:edit'],
+        del: ['admin', 'workflow:del']
       }
     }
   },
   methods: {
     // 改变状态
     changeEnabled(data, val) {
-      this.$confirm('此操作将 "' + this.dict.label.job_status[val] + '" ' + data.name + '岗位, 是否继续？', '提示', {
+      this.$confirm('此操作将 "' + this.dict.label.flow_status[val] + '" ' + data.name + '流程, 是否继续？', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         // eslint-disable-next-line no-undef
-        crudJob.edit(data).then(() => {
+        crudWorkflow.edit(data).then(() => {
           // eslint-disable-next-line no-undef
-          this.crud.notify(this.dict.label.job_status[val] + '成功', 'success')
+          this.crud.notify(this.dict.label.flow_status[val] + '成功', 'success')
         }).catch(err => {
           data.enabled = !data.enabled
           console.log(err.data.message)

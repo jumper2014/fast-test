@@ -33,11 +33,11 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-@Table(name="workflow")
+@Table(name="demo_workflow")
 public class Workflow extends BaseEntity implements Serializable {
 
     @Id
-    @Column(name = "workflow_id")
+    @Column(name = "id")
     @NotNull(groups = Update.class)
     @ApiModelProperty(value = "ID", hidden = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,6 +46,11 @@ public class Workflow extends BaseEntity implements Serializable {
     @NotBlank
     @ApiModelProperty(value = "流程名称")
     private String name;
+
+    @NotBlank
+    @Column(name = "flow_id")
+    @ApiModelProperty(value = "流程名称")
+    private String flowId;
 
 
     @NotNull

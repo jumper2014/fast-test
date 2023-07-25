@@ -98,7 +98,7 @@ public class WorkflowServiceImpl implements WorkflowService {
     public void delete(Set<Long> ids) {
         workflowRepository.deleteAllByIdIn(ids);
         // 删除缓存
-        redisUtils.delByKeys(CacheKey.JOB_ID, ids);
+//        redisUtils.delByKeys(CacheKey.JOB_ID, ids);
     }
 
     @Override
@@ -107,6 +107,7 @@ public class WorkflowServiceImpl implements WorkflowService {
         for (WorkflowDto workflowDTO : workflowDtos) {
             Map<String,Object> map = new LinkedHashMap<>();
             map.put("流程名称", workflowDTO.getName());
+            map.put("流程编号", workflowDTO.getFlowId());
             map.put("流程状态", workflowDTO.getEnabled() ? "启用" : "停用");
             map.put("创建日期", workflowDTO.getCreateTime());
             list.add(map);

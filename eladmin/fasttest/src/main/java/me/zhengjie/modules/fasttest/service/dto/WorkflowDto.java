@@ -35,10 +35,13 @@ public class WorkflowDto extends BaseDTO implements Serializable {
 
     private String name;
 
+    private String flowId;
+
     private Boolean enabled;
 
-    public WorkflowDto(String name, Boolean enabled) {
+    public WorkflowDto(String name, String flowId, Boolean enabled) {
         this.name = name;
+        this.flowId = flowId;
         this.enabled = enabled;
     }
 }

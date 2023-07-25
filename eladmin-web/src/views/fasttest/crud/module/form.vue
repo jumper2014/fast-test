@@ -25,12 +25,12 @@
       </el-form-item>
       <el-form-item
         label="流程编号"
-        prop="jobSort"
+        prop="flowId"
       >
         <el-input-number
-          v-model.number="form.jobSort"
+          v-model.number="form.flowId"
           :min="0"
-          :max="999"
+          :max="9999"
           controls-position="right"
           style="width: 370px;"
         />
@@ -41,7 +41,7 @@
         prop="enabled"
       >
         <el-radio
-          v-for="item in jobStatus"
+          v-for="item in flowStatus"
           :key="item.id"
           v-model="form.enabled"
           :label="item.value === 'true'"
@@ -77,13 +77,13 @@ import { form } from '@crud/crud'
 const defaultForm = {
   id: null,
   name: '',
-  jobSort: 999,
+  flowId: 9999,
   enabled: true
 }
 export default {
   mixins: [form(defaultForm)],
   props: {
-    jobStatus: {
+    flowStatus: {
       type: Array,
       required: true
     }
@@ -94,8 +94,8 @@ export default {
         name: [
           { required: true, message: '请输入名称', trigger: 'blur' }
         ],
-        jobSort: [
-          { required: true, message: '请输入序号', trigger: 'blur', type: 'number' }
+        flowId: [
+          { required: true, message: '请输入编号', trigger: 'blur', type: 'number' }
         ]
       }
     }

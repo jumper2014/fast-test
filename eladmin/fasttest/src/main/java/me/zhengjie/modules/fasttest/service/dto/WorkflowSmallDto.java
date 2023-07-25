@@ -29,6 +29,6 @@ import java.io.Serializable;
 public class WorkflowSmallDto implements Serializable {
 
     private Long id;
-
     private String name;
+    private String flowId;
 }

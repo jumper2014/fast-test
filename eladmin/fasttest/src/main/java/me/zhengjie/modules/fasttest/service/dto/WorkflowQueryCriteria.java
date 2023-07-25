@@ -19,9 +19,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import me.zhengjie.annotation.Query;
 
-import java.sql.Timestamp;
-import java.util.List;
-
 /**
  * @author ijumper
  * @date 2023-07-24
@@ -32,10 +29,4 @@ public class WorkflowQueryCriteria {
 
     @Query(type = Query.Type.INNER_LIKE)
     private String name;
-
-    @Query
-    private Boolean enabled;
-
-    @Query(type = Query.Type.BETWEEN)
-    private List<Timestamp> createTime;
 }
