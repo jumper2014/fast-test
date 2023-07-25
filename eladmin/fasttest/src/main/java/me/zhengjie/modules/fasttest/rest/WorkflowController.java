@@ -42,7 +42,7 @@ import java.io.IOException;
 */
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "系统：流程管理")
+@Api(tags = "FastTest：流程管理")
 @RequestMapping("/api/workflow")
 public class WorkflowController {
 

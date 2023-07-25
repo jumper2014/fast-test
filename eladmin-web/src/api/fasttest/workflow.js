@@ -3,8 +3,7 @@ import request from '@/utils/request'
 export function getAllWorkflow() {
   const params = {
     page: 0,
-    size: 9999,
-    enabled: true
+    size: 9999
   }
   return request({
     url: 'api/workflow',
