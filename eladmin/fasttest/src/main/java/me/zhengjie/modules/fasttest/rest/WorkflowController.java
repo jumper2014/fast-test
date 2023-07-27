@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Set;
 
 /**
  * @author ijumper
@@ -83,6 +84,16 @@ public class WorkflowController {
     public ResponseEntity<Object> updateWorkflow(@Validated(Workflow.Update.class) @RequestBody Workflow resources){
         workflowService.update(resources);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @Log("删除流程")
+    @ApiOperation("删除流程")
+    @DeleteMapping
+    @PreAuthorize("@el.check('workflow:del')")
+    public ResponseEntity<Object> deleteWorkflow(@RequestBody Set<Long> ids){
+        // 验证是否被用户关联
+        workflowService.delete(ids);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

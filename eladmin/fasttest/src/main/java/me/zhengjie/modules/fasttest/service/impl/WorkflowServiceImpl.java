@@ -97,8 +97,6 @@ public class WorkflowServiceImpl implements WorkflowService {
     @Transactional(rollbackFor = Exception.class)
     public void delete(Set<Long> ids) {
         workflowRepository.deleteAllByIdIn(ids);
-        // 删除缓存
-//        redisUtils.delByKeys(CacheKey.JOB_ID, ids);
     }
 
     @Override
