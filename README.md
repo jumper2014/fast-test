@@ -1,5 +1,5 @@
 ## 项目介绍
-`fast-test` 是一个自动化测试工具项目，通过基础示例帮你快速构建自己的自动化测试框架，自动化测试工具，自动化测试平台。
+`fast-test` 是一个自动化测试工具平台，通过基础示例帮你快速构建自己的自动化测试框架，自动化测试工具，自动化测试平台。
 
 ## 开发环境
 - **JDK 1.8 +**
@@ -11,9 +11,11 @@
 ### 各 Module 介绍
 | Module 名称                                                  | Module 介绍                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [eladmin](./eladmin)                         | 基于eladmin的测试工具平台-后端                                |
+| [eladmin-web](./eladmin-web)                         | 基于eladmin的测试工具平台-前端                                |
 | [test-flash](./test-flash)                         | 基于web-flash的测试工具平台                                |
-| [fast-test-framework](./fast-test-framework)       | 各种自动化测试框架                                |
-| [testng-selenium-pagefactory](./fast-test-framework/testng-selenium-pagefactory)       | 基于pagefactory模式的selenium自动测试框架                                |
+| [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 一个基于testng+selenium+pageObject的测试框架                             |
+| [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 一个基于JUnit+Allure+Grpc的测试框架                             |
 | [aut-server](./aut-server)                         | AUT被测应用, 提供各类被测服务                                |
 | [resource.md](./resource.md)                         | 环境资源指南文档                              |
 
@@ -53,9 +55,10 @@
   - 读取yaml文件 - 完成
 
 ### 感谢
+- [感谢eladmin提供测试平台的管理后台功能支持](https://github.com/elunez/eladmin)
 - [感谢web-flash提供测试平台的管理后台功能支持](https://github.com/enilu/web-flash)
 
 ### License
 [Apache License, Version 2.0](https://opensource.org/licenses/Apache-2.0)
 
-Copyright (c) 2021 旺福
+Copyright (c) 2021 ijumper
