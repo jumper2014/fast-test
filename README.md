@@ -13,7 +13,7 @@
 | [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 基于JUnit+Allure+Grpc的测试框架                             |
 | [test-framework-junit-cucumber-demo](./test-framework-junit-cucumber-demo)       | 基于JUnit+Cucumber并且支持中文feature文件的测试框架                             |
 | [test-framework-http-api-moco-demo](./test-framework-http-api-moco-demo)       | 基于JUnit/Testng的HTTP API测试框架, AUT使用MOCO                             |
-| [test-framework-testng-cucumber-ui-demo](./test-framework-testng-cucumber-ui-demo)       | Testng+Cucumber+Selenium/Appium的UI测试框架                             |
+| [test-framework-testng-cucumber-ui-demo](./test-framework-testng-cucumber-ui-demo)       | 基于Testng+Cucumber+Selenium/Appium的UI测试框架                             |
 | [aut-server](./aut-server)                         | AUT被测应用, 提供各类被测服务                                |
 | [resource.md](./resource.md)                         | 环境资源指南文档                              |
 
