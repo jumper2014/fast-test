@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="http api test">
+    <test name="test user api">
+        <classes>
+            <class name="com.zyt.test.user.UserCreateTest" />
+        </classes>
+    </test>
+</suite>
