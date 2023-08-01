@@ -13,7 +13,7 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [test-flash](./test-flash)                         | 基于web-flash的测试工具平台                                |
 | [fast-test-framework](./fast-test-framework)       | 各种自动化测试框架                                |
-| [testng-selenium-pagefactory](./fast-test-framework/testng-selenium-pagefactory)       | 基于pagefactory模式的selenium自动测试框架                                |
+| [testng-selenium-pagefactory](test-framework-testng-selenium-demo)       | 基于pagefactory模式的selenium自动测试框架                                |
 | [aut-server](./aut-server)                         | AUT被测应用, 提供各类被测服务                                |
 | [resource.md](./resource.md)                         | 环境资源指南文档                              |
 
