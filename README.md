@@ -14,8 +14,9 @@
 | [eladmin](./eladmin)                         | 基于eladmin的测试工具平台-后端                                |
 | [eladmin-web](./eladmin-web)                         | 基于eladmin的测试工具平台-前端                                |
 | [test-flash](./test-flash)                         | 基于web-flash的测试工具平台                                |
-| [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 一个基于testng+selenium+pageObject的测试框架                             |
+| [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 一个基于Testng+Selenium+PageObject的测试框架                             |
 | [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 一个基于JUnit+Allure+Grpc的测试框架                             |
+| [test-framework-junit-cucumber-demo](./test-framework-junit-cucumber-demo)       | 一个基于JUnit+Cucumber并且支持中文feature文件的测试框架                             |
 | [aut-server](./aut-server)                         | AUT被测应用, 提供各类被测服务                                |
 | [resource.md](./resource.md)                         | 环境资源指南文档                              |
 
