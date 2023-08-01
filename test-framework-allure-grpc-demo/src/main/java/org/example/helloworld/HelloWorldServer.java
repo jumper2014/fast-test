@@ -79,7 +79,7 @@ public class HelloWorldServer {
         server.blockUntilShutdown();
     }
 
-    static class GreeterImpl extends Greeter.GreeterImplBase {
+    static class GreeterImpl extends GreeterGrpc.GreeterImplBase {
 
         @Override
         public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
