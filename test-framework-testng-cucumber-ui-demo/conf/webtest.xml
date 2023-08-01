@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AppiumAppTests" verbose="10">
+    <test name="AppTest">
+
+        <classes>
+            <class name="com.ys.webtest.TestOverView">
+                <methods>
+                    <!--<include name="testTotalNodes"></include>-->
+                    <!--<include name="testFlow"></include>-->
+                    <include name="testSwitchReport"></include>
+
+                </methods>
+            </class>
+            
+        </classes>
+    </test>
+</suite>
