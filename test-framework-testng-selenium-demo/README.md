@@ -5,8 +5,8 @@
 
 
 # dir
-- pages: src/main/java/com.zyt.pages
-- tests: src/test/java/com.zyt.baidu
+- pages: src/main/java/com.fast.pages
+- tests: src/test/java/com.fast.baidu
 
 # how to run test
 - cd <project>

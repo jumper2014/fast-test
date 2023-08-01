@@ -1,4 +1,4 @@
-package com.zyt.constant;
+package com.fast.constant;
 
 public class Constant {
     public final static String URL = "http://www.baidu.com";

@@ -1,14 +1,14 @@
-package com.zyt.baidu;
+package com.fast.baidu;
 
-import com.zyt.constant.Constant;
-import com.zyt.pages.IndexPage;
+import com.fast.constant.Constant;
+import com.fast.pages.IndexPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
-import static com.zyt.constant.Constant.DRIVER_PATH;
+import static com.fast.constant.Constant.DRIVER_PATH;
 
 public class IndexSearchTest {
 
@@ -33,7 +33,7 @@ public class IndexSearchTest {
     @Test()
     public void searchKeyword() throws InterruptedException {
         indexPage = new IndexPage(driver);
-        indexPage.search("ijumper");
+        indexPage.search("fasttest");
         Thread.sleep(3*1000);
     }
 }

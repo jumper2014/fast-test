@@ -1,4 +1,4 @@
-package com.zyt.pages;
+package com.fast.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
