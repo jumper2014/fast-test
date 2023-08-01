@@ -117,7 +117,7 @@ public class ReadJson {
 
     public static void main(String[] args) {
         // just for test
-        List<List<String>> allCase = readJson("C:\\zengyuetian\\git\\xmind2excel-master\\xmind\\Test.km");
+        List<List<String>> allCase = readJson("C:\\git\\xmind2excel-master\\xmind\\Test.km");
         System.out.println();
 
     }

@@ -150,9 +150,9 @@ public class ExcelHelper {
             // 文件名
             String fileName = excelName + ".xls";
             // 生成excel文件
-            out = new FileOutputStream(filePath + "/" + fileName);
+            out = new FileOutputStream(filePath + fileName);
             workbook.write(out);
-            System.out.println("Transfer done. Path:" + filePath + "/" + fileName);
+            System.out.println("Transfer done. Path:" + filePath + fileName);
             out.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
