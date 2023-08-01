@@ -1,0 +1,14 @@
+[
+  {
+    "description":"create new user",
+    "request":{
+      "uri":"/user",
+      "method":"post"
+    },
+    "response":{
+      "json":{
+        "userid":"001"
+      }
+    }
+  }
+]
