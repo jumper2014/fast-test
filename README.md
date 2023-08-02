@@ -18,7 +18,19 @@
 | [aut-server](./aut-server)                         | AUT被测应用, 提供各类被测服务                                |
 | [resource.md](./resource.md)                         | 环境资源指南文档                              |
 
-### 开发计划及进度
+### eladmin测试平台功能展示
+- 平台登录  
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/login.PNG)
+- 后台管理  
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/index.PNG)
+- 增删改查示例  
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/curd.PNG)
+- 上传百度脑图转Excel下载  
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/km2excel.PNG)
+- 数据库操作示例  
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/lockuser.PNG)
+
+### 计划及进度
 
 #### 测试工具示例
 - 测试文件生成
