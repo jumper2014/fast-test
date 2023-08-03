@@ -7,8 +7,8 @@
 ### 工具介绍
 | 名称                                                  | 描述                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [eladmin](./eladmin)                         | 基于eladmin的测试工具平台-后端                                |
-| [eladmin-web](./eladmin-web)                         | 基于eladmin的测试工具平台-前端                                |
+| [fastadmin](./fastadmin)                         | 测试工具平台后端                                |
+| [fastadmin-web](./fastadmin-web)                         | 测试工具平台前端                                |
 | [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 基于JUnit+Allure+Grpc的接口测试框架                             |
 | [test-framework-http-api-moco-demo](./test-framework-http-api-moco-demo)       | 基于JUnit/TestNg的HTTP接口测试框架, AUT使用MOCO框架生成Mocker                             |
 | [test-framework-junit-cucumber-demo](./test-framework-junit-cucumber-demo)       | 基于JUnit+Cucumber并且支持中文feature文件的BDD测试框架                             |
@@ -20,15 +20,23 @@
 
 ### eladmin测试平台功能展示
 - 平台登录  
-![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/login.PNG)
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/login.PNG)
 - 后台管理  
-![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/index.PNG)
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/index.PNG)
+- 用户管理
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/user.PNG)
+- 角色管理
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/role.PNG)
+- 部门管理
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/dept.PNG)
+- 菜单管理
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/menu.PNG)
 - 增删改查示例  
-![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/curd.PNG)
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/curd.PNG)
 - 上传百度脑图转Excel下载  
-![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/km2excel.PNG)
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/km2excel.PNG)
 - 数据库操作示例  
-![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/lockuser.PNG)
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/lockuser.PNG)
 
 ### 计划及进度
 
