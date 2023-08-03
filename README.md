@@ -18,7 +18,7 @@
 | [test-flash](./test-flash)                         | 基于web-flash的测试工具平台                                |
 | [resource.md](./resource.md)                         | 环境资源指南文档                              |
 
-### eladmin测试平台功能展示
+### FastAdmin测试平台功能展示
 - 平台登录  
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/login.PNG)
 - 后台管理  
