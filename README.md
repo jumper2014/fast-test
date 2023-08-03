@@ -15,7 +15,7 @@
 | [test-framework-testng-cucumber-ui-demo](./test-framework-testng-cucumber-ui-demo)       | 基于TestNg+Cucumber+Selenium/Appium的UI测试框架                             |
 | [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 基于TestNg+Selenium+PageObject的UI测试框架                             |
 | [test-flash](./test-flash)                         | 基于web-flash的测试工具平台                                |
-| [resource.md](./resource.md)                         | 环境资源指南文档                              |
+| [resource.md](./doc/md/resource.md)                         | 环境资源指南文档                              |
 
 ## FastAdmin测试平台功能展示
 - 平台登录  
