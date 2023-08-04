@@ -17,7 +17,6 @@ import org.testng.TestNG;
 import ui.element.ElementInfo;
 import utils.ElementInfoUtil;
 import utils.dataReaders.ConfigReader;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;

@@ -18,19 +18,16 @@ public class BaiduSearchPage extends BasePage {
 
 
     public BaiduSearchPage openWindow(String url) {
-        logger.info("打开窗口，URL为{}", url);
-        //操作页面元素
+        logger.info("Open URL {}", url);
         WebDriver webDriver = this.getDriver();
-        logger.info("取到Driver");
+        logger.info("Get driver");
         this.maximize();
         webDriver.get(url);
-        logger.info("打开URL网址");
         this.waitForPageLoad(3);
         return this;
     }
 
     public void searchKeyword(String keyword) {
-        //按页面元素名称找到元素，进行点击操作
         this.setKeyword(keyword);
         this.clickSubmit();
     }
@@ -43,7 +40,6 @@ public class BaiduSearchPage extends BasePage {
     public void clickSubmit() {
         WebElement submit = findElementByName("submitBtn");
         submit.click();
-
     }
 
     public void search(String word) {
