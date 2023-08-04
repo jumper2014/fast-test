@@ -1,0 +1,12 @@
+#ignore unnecessary folders#
+.idea/
+.idea
+/logs/
+/target/
+/test-output/
+
+#Ignore all log files
+*.log
+
+#Ignore iml files
+*.iml

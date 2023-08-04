@@ -1,6 +1,6 @@
 ## 关于fast-test
-- `fast-test`是测试工具的集合，项目的初衷是为了解决重复工作(操作数据库,操作文件等)占用测试人员大量时间精力的问题。通过将人工操作转变为半自动化甚至全自动化，可以显著改善测试人员的工作环境，从而使其能够充分发挥脑力输出的潜力。  
-- `fast-test`还包含各种自动化测试框架的demo，可以帮助测试人员快速构建自己的自动化测试项目。  
+- `fast-test`是测试工具的集合，初衷是为了解决重复工作(操作数据库,操作文件等)占用测试人员大量时间精力的问题。通过将人工操作转变为半自动化甚至全自动化，显著改善测试人员的工作环境，从而使其能够充分发挥脑力输出的潜力。  
+- `fast-test`还包含各种自动化测试框架的示例，帮助测试人员快速构建自己的自动化测试项目。  
 - 欢迎点赞，收藏！ （如需自动化测试相关的项目定制开发，可联系 ijumper@163.com ）
 
 ## 工具介绍
@@ -9,6 +9,7 @@
 | [fastadmin](./fastadmin)                         | 测试工具平台后端                                |
 | [fastadmin-web](./fastadmin-web)                         | 测试工具平台前端                                |
 | [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 基于JUnit+Allure+Grpc的接口测试框架                             |
+| [test-framework-ddt-selenium-demo](./test-framework-ddt-selenium-demo)       | 基于TestNg+Selenium+Excel的UI数据驱动测试框架,测试用例和页面元素用表格管理                             |
 | [test-framework-http-api-moco-demo](./test-framework-http-api-moco-demo)       | 基于JUnit/TestNg的HTTP接口测试框架, AUT使用MOCO框架生成Mocker                             |
 | [test-framework-junit-cucumber-demo](./test-framework-junit-cucumber-demo)       | 基于JUnit+Cucumber并且支持中文feature文件的BDD测试框架                             |
 | [test-framework-junit-rpc-demo](./test-framework-junit-rpc-demo)       | 基于JUnit+Dubbo RPC的接口测试框架                             |
