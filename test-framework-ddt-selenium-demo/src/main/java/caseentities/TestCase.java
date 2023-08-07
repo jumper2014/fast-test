@@ -11,5 +11,5 @@ public class TestCase {
     private String caseDescription;
     private boolean casePreConditionRunFlag;
     private String casePreConditionCmd;
-    private List<CaseStep> caseStepList;
+    private List<CaseStep> caseSteps;
 }

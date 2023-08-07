@@ -26,14 +26,12 @@ public class ExcelReader {
         }
     }
 
-    public List<Map<String, String>> readExcelData2MapList(String sheetName) throws Exception{
-        //循环工作表Sheet
+    public List<Map<String, String>> readExcelData2MapList(String sheetName) throws Exception {
         XSSFSheet sheet = workbook.getSheet(sheetName);
         List<Map<String, String>> list = new ArrayList<>();
-        try{
-            //循环行Row
+        try {
             XSSFRow titleRow = sheet.getRow(0);
-            //logger.info("工作表{}总共有{}行数据", sheetName, sheet.getLastRowNum());
+            logger.info("Sheet:{} has {} lines", sheetName, sheet.getLastRowNum());
             for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
                 XSSFRow row = sheet.getRow(rowNum);
 
@@ -42,23 +40,19 @@ public class ExcelReader {
                 }
 
                 Map<String, String> map = new HashMap<>();
-                // 循环列Cell
-                for (int cellNum = 0; cellNum <titleRow.getLastCellNum(); cellNum++) {
-                    //每行每列的单元格取值
+                for (int cellNum = 0; cellNum < titleRow.getLastCellNum(); cellNum++) {
                     XSSFCell xssfCell = row.getCell(cellNum);
-                    //每个列对应的列名（第一行）
                     XSSFCell titleRowCell = titleRow.getCell(cellNum);
-                    //每列加上列名作为Key-Value存放
                     map.put(getCellValue(titleRowCell), getCellValue(xssfCell));
                 }
                 list.add(map);
             }
-            }catch (Exception e){
-                logger.error("读取Excel工作表到MapList时出错，错误信息：{}", e.getMessage());
-                e.printStackTrace();
-            }finally {
-                workbook.close();
-            }
+        } catch (Exception e) {
+            logger.error("Read Excel sheet to MapList error: {}", e.getMessage());
+            e.printStackTrace();
+        } finally {
+            workbook.close();
+        }
         return list;
     }
 
@@ -82,7 +76,7 @@ public class ExcelReader {
 
                 XSSFCell firstColumnCell = row.getCell(0);
                 // 循环列Cell
-                for (int cellNum = 0; cellNum <titleRow.getLastCellNum(); cellNum++) {
+                for (int cellNum = 0; cellNum < titleRow.getLastCellNum(); cellNum++) {
                     //每行每列的单元格取值
                     XSSFCell xssfCell = row.getCell(cellNum);
                     //每个列对应的列名（第一行）
@@ -92,9 +86,9 @@ public class ExcelReader {
                 }
                 rowMap.put(getCellValue(firstColumnCell), map);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("读取Excel工作表到Maps时出错，错误信息：{}", e.getMessage());
-        }finally {
+        } finally {
             workbook.close();
         }
         return rowMap;
@@ -163,9 +157,9 @@ public class ExcelReader {
 
     private static String numericParse(XSSFCell cell) {
         String cellValue;
-            double value = cell.getNumericCellValue();
-            int intValue = (int)value;
-            cellValue = value > (double)intValue ? String.valueOf(value) : String.valueOf(intValue);
+        double value = cell.getNumericCellValue();
+        int intValue = (int) value;
+        cellValue = value > (double) intValue ? String.valueOf(value) : String.valueOf(intValue);
 
         return cellValue;
     }
@@ -184,7 +178,7 @@ public class ExcelReader {
             XSSFRow row = sheet.getRow(rowNum);
             valuesBuf.append(row.getCell(0).toString());
 
-            for(int i = 1; i < totalCol; i++) {
+            for (int i = 1; i < totalCol; i++) {
                 XSSFCell cell = row.getCell(i);
                 valuesBuf.append(", ");
                 valuesBuf.append(getCellValue(cell));

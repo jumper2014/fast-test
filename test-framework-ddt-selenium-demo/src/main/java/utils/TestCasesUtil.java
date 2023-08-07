@@ -5,6 +5,7 @@ import caseentities.TestCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.dataReaders.ExcelReader;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,70 +25,69 @@ public class TestCasesUtil {
     private static final String STEP_PO_CLASSNAME = "PageObjClassName";
     private static final String STEP_PO_METHOD = "PageObjMethod";
     private static final String STEP_PO_METHOD_PARAM = "MethodParams";
-    private static final String STEP_RETURN_OBJECT_CLASSNAME = "ReturnObjClassName";
     private static final String STEP_INITIATE_ELEMENTS = "InitiateElements";
 
-    public List<TestCase> Excel2TestCaseList(String excelFile, String sheetName) throws Exception{
+    public List<TestCase> Excel2TestCaseList(String excelFile, String sheetName) throws Exception {
         ExcelReader excelReader = new ExcelReader(excelFile);
-        List<Map<String, String>> dataList = excelReader.readExcelData2MapList(sheetName);
-        List<TestCase> testCases = new ArrayList<>();
-        TestCase oneTestCase = null;
+        List<Map<String, String>> allSteps = excelReader.readExcelData2MapList(sheetName);
+        List<TestCase> allTestCases = new ArrayList<>();
+        TestCase testcase = null;
         String currentCaseId = "";
-        List<CaseStep> caseStepList = null;
+        List<CaseStep> caseSteps = null;
 
-        for(int i = 0; i < dataList.size(); i++){
-            String caseId = dataList.get(i).get(CASE_ID);
-            String caseRunFlag = dataList.get(i).get(CASE_RUN_FLAG);
-            String caseName = dataList.get(i).get(CASE_NAME);
-            String caseDescription = dataList.get(i).get(CASE_DESCRIPTION);
-            String casePreConditionRunFlag = dataList.get(i).get(CASE_PRE_CONDITION_RUN_FLAG);
-            String casePreCondition = dataList.get(i).get(CASE_PRE_CONDITION_CMD);
+        for (int i = 0; i < allSteps.size(); i++) {
+            String caseId = allSteps.get(i).get(CASE_ID);
+            String caseRunFlag = allSteps.get(i).get(CASE_RUN_FLAG);
+            String caseName = allSteps.get(i).get(CASE_NAME);
+            String caseDescription = allSteps.get(i).get(CASE_DESCRIPTION);
+            String casePreConditionRunFlag = allSteps.get(i).get(CASE_PRE_CONDITION_RUN_FLAG);
+            String casePreCondition = allSteps.get(i).get(CASE_PRE_CONDITION_CMD);
 
-            if (caseId!= null && !caseId.equalsIgnoreCase("") && !caseId.equalsIgnoreCase(currentCaseId)){
+            // steps for different cases
+            if (caseId != null
+                    && !caseId.equalsIgnoreCase("")
+                    && !caseId.equalsIgnoreCase(currentCaseId)) {
+                // record new caseId
                 currentCaseId = caseId;
-                if(i != 0) {  //非第一次读到Case信息，将已读到的信息放入Case列表
-                    //把现有收集到的Case对象和StepList放到testCases列表中；
-                    if(oneTestCase != null) {
-                        oneTestCase.setCaseStepList(caseStepList);
+                if (i != 0) {  // save previous testcase to list
+                    // already initialized
+                    if (testcase != null) {
+                        testcase.setCaseSteps(caseSteps);
                     }
-                    testCases.add(oneTestCase);
-
-                    //清空待再次放数据
-                    caseStepList = null;
-                    oneTestCase = null;
+                    allTestCases.add(testcase);
                 }
 
-                //新建一个Case对象
-                oneTestCase = new TestCase();
-                caseStepList = new ArrayList<>();
+                // new case
+                testcase = new TestCase();
+                caseSteps = new ArrayList<>();
 
-                oneTestCase.setCaseId(caseId);
-                if(caseRunFlag != null) {
+                testcase.setCaseId(caseId);
+                testcase.setCaseName(caseName);
+                testcase.setCaseDescription(caseDescription);
+
+                if (caseRunFlag != null) {
                     if (caseRunFlag.equalsIgnoreCase("Y") || caseRunFlag.equalsIgnoreCase("Yes")) {
-                        oneTestCase.setCaseRunFlag(true);
+                        testcase.setCaseRunFlag(true);
                     } else {
-                        oneTestCase.setCaseRunFlag(false);
+                        testcase.setCaseRunFlag(false);
                     }
                 }
-                oneTestCase.setCaseName(caseName);
-                oneTestCase.setCaseDescription(caseDescription);
 
-                if(casePreConditionRunFlag != null) {
+                if (casePreConditionRunFlag != null) {
                     if (casePreConditionRunFlag.equalsIgnoreCase("Y") || casePreConditionRunFlag.equalsIgnoreCase("Yes")) {
-                        oneTestCase.setCasePreConditionRunFlag(true);
+                        testcase.setCasePreConditionRunFlag(true);
                     } else {
-                        oneTestCase.setCasePreConditionRunFlag(false);
+                        testcase.setCasePreConditionRunFlag(false);
                     }
                 }
-                oneTestCase.setCasePreConditionCmd(casePreCondition);
+                testcase.setCasePreConditionCmd(casePreCondition);
             }
 
+            // steps for same case
             CaseStep caseStep = new CaseStep();
-            //取CaseStep相关的信息，放入CaseStep对象中
-            String stepIndex = dataList.get(i).get(STEP_INDEX);
-            caseStep.setStepIndex(stepIndex);
-            String stepRunFlag = dataList.get(i).get(STEP_RUN_FLAG);
-            if(stepRunFlag != null) {
+            caseStep.setStepIndex(allSteps.get(i).get(STEP_INDEX));
+            String stepRunFlag = allSteps.get(i).get(STEP_RUN_FLAG);
+            if (stepRunFlag != null) {
                 if (stepRunFlag.equalsIgnoreCase("Y") || stepRunFlag.equalsIgnoreCase("Yes")) {
                     caseStep.setStepRunFlag(true);
                 } else {
@@ -95,37 +95,25 @@ public class TestCasesUtil {
                 }
             }
 
-            String pageObjName = dataList.get(i).get(STEP_PO_CLASSNAME);
-            caseStep.setStepPOClassName(pageObjName);
+            caseStep.setStepPOClassName(allSteps.get(i).get(STEP_PO_CLASSNAME));
+            caseStep.setStepPOMethodName(allSteps.get(i).get(STEP_PO_METHOD));
+            caseStep.setStepPOMethodParams(allSteps.get(i).get(STEP_PO_METHOD_PARAM));
+            caseStep.setRelatedElementIndicators(allSteps.get(i).get(STEP_INITIATE_ELEMENTS));
 
-            String pageObjMethod = dataList.get(i).get(STEP_PO_METHOD);
-            caseStep.setStepPOMethodName(pageObjMethod);
-
-            String methodParams = dataList.get(i).get(STEP_PO_METHOD_PARAM);
-            caseStep.setStepPOMethodParams(methodParams);
-
-            String relatedElements =dataList.get(i).get(STEP_INITIATE_ELEMENTS);
-            caseStep.setRelatedElementIndicators(relatedElements);
-
-            if(caseStepList != null) {
-                caseStepList.add(caseStep);
+            if (caseSteps != null) {
+                caseSteps.add(caseStep);
             }
         }
 
-        //把现有收集到的Case对象和StepList放到testCases列表中；
-        if(oneTestCase != null) {
-            oneTestCase.setCaseStepList(caseStepList);
+        // save last case to list
+        if (testcase != null) {
+            testcase.setCaseSteps(caseSteps);
         }
-        testCases.add(oneTestCase);
+        allTestCases.add(testcase);
 
         String caseDataFile = excelFile.substring(excelFile.indexOf("src"));
-        logger.info("Excel文件{}工作表{}的数据已整理到TestCase对象和CaseStep对象列表中！", caseDataFile, sheetName);
-
-        //清空临时List
-        caseStepList = null;
-        oneTestCase = null;
-
-        return testCases;
+        logger.info("Excel {} sheet {} saved to allTestCases！", caseDataFile, sheetName);
+        return allTestCases;
     }
 
 }

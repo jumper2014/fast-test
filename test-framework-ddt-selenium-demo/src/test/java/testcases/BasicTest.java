@@ -75,7 +75,7 @@ public class BasicTest {
                         logger.info("前置条件Flag设置为False，不需要Run PreCondition Cmd列中的Test Case");
                     }
 
-                    List<CaseStep> caseSteps = testCase.getCaseStepList();
+                    List<CaseStep> caseSteps = testCase.getCaseSteps();
                     logger.info("找到用例{}的执行步骤数为：{}步", testCaseName, caseSteps.size());
 
                     Object previousStepReturnObj = null;
