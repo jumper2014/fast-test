@@ -1,4 +1,4 @@
-package caseentities;
+package testcase;
 
 import lombok.Data;
 import java.util.List;
@@ -11,5 +11,5 @@ public class TestCase {
     private String caseDescription;
     private boolean casePreConditionRunFlag;
     private String casePreConditionCmd;
-    private List<CaseStep> caseSteps;
+    private List<TestStep> testSteps;
 }

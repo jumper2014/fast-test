@@ -1,7 +1,5 @@
-package testcases;
+package testcase;
 
-import caseentities.CaseStep;
-import caseentities.TestCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.TestNG;
@@ -75,24 +73,24 @@ public class BasicTest {
                         logger.info("前置条件Flag设置为False，不需要Run PreCondition Cmd列中的Test Case");
                     }
 
-                    List<CaseStep> caseSteps = testCase.getCaseSteps();
-                    logger.info("找到用例{}的执行步骤数为：{}步", testCaseName, caseSteps.size());
+                    List<TestStep> testSteps = testCase.getTestSteps();
+                    logger.info("找到用例{}的执行步骤数为：{}步", testCaseName, testSteps.size());
 
                     Object previousStepReturnObj = null;
                     Object existingPageObject = null;
 
-                    for (int j = 0; j < caseSteps.size(); j++) {
-                        CaseStep caseStep = caseSteps.get(j);
+                    for (int j = 0; j < testSteps.size(); j++) {
+                        TestStep testStep = testSteps.get(j);
 
                         //如果Case中Step要Run，取到所有操作需要的信息
-                        if (caseStep.isStepRunFlag()) {
+                        if (testStep.isStepRunFlag()) {
                             Object pageObj = null;
                             Class<?> pageObjClass = null;
 
-                            String pageName = caseStep.getStepPOClassName(); //从Excel表中获取到PO Class名称
+                            String pageName = testStep.getStepPOClassName(); //从Excel表中获取到PO Class名称
 
-                            String stepMethodName = caseStep.getStepPOMethodName();//从Excel表中获取到Method名称
-                            caseStep.getStepPOMethodParams();
+                            String stepMethodName = testStep.getStepPOMethodName();//从Excel表中获取到Method名称
+                            testStep.getStepPOMethodParams();
 
                             //用objClassName来判断引用上一步返回的对象，还是重新Initiate一个新对象进行操作
                             if (pageName.startsWith("%")){//从外部传的参数中取PO对象，或者从上一个步骤中接受PO对象
@@ -117,10 +115,10 @@ public class BasicTest {
 
                             }
 
-                            String[] stepPOMethodParamStrings = caseStep.getStepPOMethodParams();
+                            String[] stepPOMethodParamStrings = testStep.getStepPOMethodParams();
 
                             logger.info("Excel配置CaseStep：{}，Object：{}，Method：{}，参数个数：{}个",
-                                    caseStep.getStepIndex(), pageObjClass != null ? pageObjClass.toString(): null, stepMethodName,
+                                    testStep.getStepIndex(), pageObjClass != null ? pageObjClass.toString(): null, stepMethodName,
                                     stepPOMethodParamStrings != null ? stepPOMethodParamStrings.length : 0);
 
                             Object[] stepArguments = new Object[]{};
@@ -189,7 +187,7 @@ public class BasicTest {
 
                             pageObjNeedClose = existingPageObject;//把当前页面对象赋给参数，以备最后测试结束后关闭页面
                         }else{
-                            logger.info("执行步骤{}的RunFlag设置为No，忽略执行该步骤！", caseStep.getStepIndex());
+                            logger.info("执行步骤{}的RunFlag设置为No，忽略执行该步骤！", testStep.getStepIndex());
                         }
                     }
                 }else{

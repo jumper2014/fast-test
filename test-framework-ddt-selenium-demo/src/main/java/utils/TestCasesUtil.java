@@ -1,7 +1,7 @@
 package utils;
 
-import caseentities.CaseStep;
-import caseentities.TestCase;
+import testcase.TestStep;
+import testcase.TestCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.dataReaders.ExcelReader;
@@ -33,7 +33,7 @@ public class TestCasesUtil {
         List<TestCase> allTestCases = new ArrayList<>();
         TestCase testcase = null;
         String currentCaseId = "";
-        List<CaseStep> caseSteps = null;
+        List<TestStep> testSteps = null;
 
         for (int i = 0; i < allSteps.size(); i++) {
             String caseId = allSteps.get(i).get(CASE_ID);
@@ -52,14 +52,14 @@ public class TestCasesUtil {
                 if (i != 0) {  // save previous testcase to list
                     // already initialized
                     if (testcase != null) {
-                        testcase.setCaseSteps(caseSteps);
+                        testcase.setTestSteps(testSteps);
                     }
                     allTestCases.add(testcase);
                 }
 
                 // new case
                 testcase = new TestCase();
-                caseSteps = new ArrayList<>();
+                testSteps = new ArrayList<>();
 
                 testcase.setCaseId(caseId);
                 testcase.setCaseName(caseName);
@@ -84,30 +84,30 @@ public class TestCasesUtil {
             }
 
             // steps for same case
-            CaseStep caseStep = new CaseStep();
-            caseStep.setStepIndex(allSteps.get(i).get(STEP_INDEX));
+            TestStep testStep = new TestStep();
+            testStep.setStepIndex(allSteps.get(i).get(STEP_INDEX));
             String stepRunFlag = allSteps.get(i).get(STEP_RUN_FLAG);
             if (stepRunFlag != null) {
                 if (stepRunFlag.equalsIgnoreCase("Y") || stepRunFlag.equalsIgnoreCase("Yes")) {
-                    caseStep.setStepRunFlag(true);
+                    testStep.setStepRunFlag(true);
                 } else {
-                    caseStep.setStepRunFlag(false);
+                    testStep.setStepRunFlag(false);
                 }
             }
 
-            caseStep.setStepPOClassName(allSteps.get(i).get(STEP_PO_CLASSNAME));
-            caseStep.setStepPOMethodName(allSteps.get(i).get(STEP_PO_METHOD));
-            caseStep.setStepPOMethodParams(allSteps.get(i).get(STEP_PO_METHOD_PARAM));
-            caseStep.setRelatedElementIndicators(allSteps.get(i).get(STEP_INITIATE_ELEMENTS));
+            testStep.setStepPOClassName(allSteps.get(i).get(STEP_PO_CLASSNAME));
+            testStep.setStepPOMethodName(allSteps.get(i).get(STEP_PO_METHOD));
+            testStep.setStepPOMethodParams(allSteps.get(i).get(STEP_PO_METHOD_PARAM));
+            testStep.setRelatedElementIndicators(allSteps.get(i).get(STEP_INITIATE_ELEMENTS));
 
-            if (caseSteps != null) {
-                caseSteps.add(caseStep);
+            if (testSteps != null) {
+                testSteps.add(testStep);
             }
         }
 
         // save last case to list
         if (testcase != null) {
-            testcase.setCaseSteps(caseSteps);
+            testcase.setTestSteps(testSteps);
         }
         allTestCases.add(testcase);
 

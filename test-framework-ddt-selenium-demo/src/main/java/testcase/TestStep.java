@@ -1,12 +1,12 @@
-package caseentities;
+package testcase;
 
 import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Data
-public class CaseStep {
-    private static final Logger logger = LoggerFactory.getLogger(CaseStep.class);
+public class TestStep {
+    private static final Logger logger = LoggerFactory.getLogger(TestStep.class);
     private String stepIndex;
     private boolean stepRunFlag;
     private String stepPOClassName;
