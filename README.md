@@ -72,8 +72,8 @@
   - 读取yaml文件 - 完成
 
 ### 感谢
-- [感谢eladmin提供测试平台的管理后台功能支持](https://github.com/elunez/eladmin)
-- [感谢web-flash提供测试平台的管理后台功能支持](https://github.com/enilu/web-flash)
+- [感谢eladmin提供测试平台的管理功能支持](https://github.com/elunez/eladmin)
+- [感谢web-flash提供测试平台的管理功能支持](https://github.com/enilu/web-flash)
 
 ### License
 [Apache License, Version 2.0](https://opensource.org/licenses/Apache-2.0)

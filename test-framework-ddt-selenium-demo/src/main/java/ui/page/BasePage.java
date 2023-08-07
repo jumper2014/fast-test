@@ -17,6 +17,7 @@ import org.testng.TestNG;
 import ui.element.ElementInfo;
 import utils.ElementInfoUtil;
 import utils.dataReaders.ConfigReader;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -29,19 +30,13 @@ public class BasePage {
     public static final String elementDataFolder = System.getProperty("user.dir") + "/src/test/data/elements/";
     public static final String configFolder = System.getProperty("user.dir") + "/config/";
 
-    //测试环境的配置信息关键字
     private static final String browserKeyWord = "test_browser";
-    //浏览器配置信息关键字
     private static final String browserPropKeySuffix = "_driver_propkey";
     private static final String browserDriverFileSuffix = "_driver_file";
+    private static final String KEYWORDS_DELIMITER = ":";
 
-    private static final String KEYWORDS_DELEMETER = ":";
-
-    //要操作一个页面，页面需要一个叫驱动器的属性
     private WebDriver driver;
     private String browser;
-
-    //每个页面需要一个页面元素列表，但初始化推后到具体的操作方法中
     public Map<String, ElementInfo> elementInfoMap;
 
     public BasePage() {
@@ -75,7 +70,7 @@ public class BasePage {
     }
 
     /**
-     * 取得当前页面的Driver
+     * Get driver for current page
      */
     public WebDriver getDriver() {
         return driver;
@@ -83,11 +78,7 @@ public class BasePage {
 
 
     /**
-     * 按某种类型和关键字查找某个页面元素
-     *
-     * @param type 类型
-     * @param key  查找信息
-     * @return 返回页面元素
+     * find element by type
      */
     public WebElement findElementBy(String type, String key) {
         WebElement element = null;
@@ -108,10 +99,7 @@ public class BasePage {
     }
 
     /**
-     * 通过元素名称找到By信息
-     *
-     * @param elementName 元素名称
-     * @return 返回By
+     * get By via name
      */
     public By getBy(String elementName) {
         By elementBy = null;
@@ -131,10 +119,7 @@ public class BasePage {
     }
 
     /**
-     * 通过元素名称找到查找线索
-     *
-     * @param elementName 元素名称
-     * @return 返回By
+     * Get clue
      */
     public String getSearchClue(String elementName) {
         String searchClue = "";
@@ -143,17 +128,14 @@ public class BasePage {
             ElementInfo elementInfo = elementInfoMap.get(elementName);
             searchClue = elementInfo.getLocationClue();
         } catch (Exception e) {
-            logger.info("ElementName{}在元素信息列表文件中没有配置", elementName);
+            logger.info("ElementName{} not found in element config file", elementName);
             e.printStackTrace();
         }
         return searchClue;
     }
 
     /**
-     * 通过元素信息对象找到By信息
-     *
-     * @param elementInfo 元素信息对象
-     * @return 返回By
+     * get By info via clue
      */
     public By getBy(ElementInfo elementInfo) {
         By elementBy = null;
@@ -193,7 +175,7 @@ public class BasePage {
      * @param waitSec             等待下拉列表出现的最长等待时间
      */
     public void searchThenSelect(WebElement field, String clueAndItemKeyWords, String dropdownListName, int waitSec, String hideItemBtn) {
-        String[] clueAndItemKeyWordArray = clueAndItemKeyWords.split(KEYWORDS_DELEMETER);
+        String[] clueAndItemKeyWordArray = clueAndItemKeyWords.split(KEYWORDS_DELIMITER);
         fillInputBox(field, clueAndItemKeyWordArray[0]);
         logger.info("可搜索输入框{}中先输入关键字{}进行查找", field.getText(), clueAndItemKeyWordArray[0]);
         forceWait(2);//强制等待2秒，等所以下拉列表的元素都加载完成
@@ -537,7 +519,7 @@ public class BasePage {
     }
 
     /**
-     * 隐式等待几秒钟
+     * implicitlyWait
      */
     public void waitForPageLoad(int waitSec) {
         this.getDriver().manage().timeouts().implicitlyWait(waitSec, TimeUnit.SECONDS);

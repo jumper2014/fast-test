@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--日志级别：TRACE < DEBUG < INFO < WARN < ERROR < FATAL,如果设置为INFO，则低于INFO的信息都不会输出-->
+    <!--
+        status: 这个用于设置log4j2自身内部的信息输出,可以不设置,当设置成trace时,会看到log4j2内部各种详细输出
+        monitorInterval: Log4j能够自动检测修改配置文件和重新配置本身, 设置间隔秒数。此处表示每隔300秒重读一次配置文件
+    -->
+<Configuration status="info" monitorInterval="300">
+
+    <Properties>
+        <Property name="LOG_HOME">logs</Property><!-- 这里的logs为项目根目录下的logs文件夹 -->
+        <!-- 高亮控制台输出  -->
+        <Property name="log_pattern_highlight">%highlight{${log_pattern}}{FATAL=Bright Red, ERROR=Magenta, WARN=Cyan, INFO=Green, DEBUG=Yellow, TRACE=Bright Blue}</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT"> <!-- 定义类型为Console的Appender -->
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss}[%logger{36}:%L] %-5level - %msg%n"/>
+        </Console>
+
+        <!--输出到日志文件中-->
+        <RollingFile name="InfoLog" fileName="${LOG_HOME}/info.log"
+                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/test-%d{yyyy-MM-dd}-%i.log">
+            <!-- fileName: 输出的日志文件的文件名, fileParten: 新建的日志文件的命名格式 -->
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!-- ThresholdFilter: 只有输出级别大于给定的级别的日志信息才会输出到文件中 -->
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss}[%logger{36}:%L] %-5level - %msg%n"/> <!-- 日志信息的格式 -->
+            <Policies>
+                <!--设置每天打包日志一次-->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!--设置日志文件满10MB后打包-->
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <!--定义logger，只有定义了logger并引入上面的appender，appender才会生效-->
+    <Loggers>
+        <Root level="info"> <!-- 定义Root Logger, 将appender添加loggers的root节点中就会生效了-->
+            <AppenderRef ref="Console"/> <!-- Root Logger的Appender引用上面定义的Console -->
+            <AppenderRef ref="InfoLog"/>
+        </Root>
+        <!--定义名字为MainLogger的Logger，其日志级别为info，info以下级别的信息将不会输出 -->
+        <!--Logger name="MainLogger" level="info" additivity="false">
+            <AppenderRef ref="Console"/> Root Logger的Appender引用上面定义的Console
+        </Logger-->
+    </Loggers>
+
+</Configuration>
