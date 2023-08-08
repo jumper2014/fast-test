@@ -6,17 +6,18 @@
 ## 工具介绍
 | 名称                                                  | 描述                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [fastadmin](./fastadmin)                         | 测试工具平台后端                                |
-| [fastadmin-web](./fastadmin-web)                         | 测试工具平台前端                                |
-| [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 基于JUnit+Allure+Grpc的接口测试框架                             |
-| [test-framework-ddt-selenium-demo](./test-framework-ddt-selenium-demo)       | 基于TestNg+Selenium+Excel的UI数据驱动测试框架,测试用例和页面元素用表格管理                             |
-| [test-framework-http-api-moco-demo](./test-framework-http-api-moco-demo)       | 基于JUnit/TestNg的HTTP接口测试框架, AUT使用MOCO框架生成Mocker                             |
-| [test-framework-junit-cucumber-demo](./test-framework-junit-cucumber-demo)       | 基于JUnit+Cucumber并且支持中文feature文件的BDD测试框架                             |
-| [test-framework-junit-rpc-demo](./test-framework-junit-rpc-demo)       | 基于JUnit+Dubbo RPC的接口测试框架                             |
-| [test-framework-pytest-airtest-demo](./test-framework-pytest-airtest-demo)       | 基于Pytest+AirTest的UI测试框架                             |
-| [test-framework-testng-cucumber-ui-demo](./test-framework-testng-cucumber-ui-demo)       | 基于TestNg+Cucumber+Selenium/Appium的UI测试框架                             |
-| [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 基于TestNg+Selenium+PageObject的UI测试框架                             |
-| [test-flash](./test-flash)                         | 基于web-flash的测试工具平台                                |
+| [fastadmin](./fastadmin)                         | 基于eladmin的测试工具平台后端 - Java                                |
+| [fastadmin-web](./fastadmin-web)                         | 基于eladmin的测试工具平台前端 - Vue                             |
+| [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 基于Java JUnit+Allure+Grpc的接口测试框架                             |
+| [test-framework-ddt-selenium-demo](./test-framework-ddt-selenium-demo)       | 基于Java TestNg+Selenium+Excel的UI数据驱动测试框架,测试用例和页面元素用表格管理                             |
+| [test-framework-http-api-moco-demo](./test-framework-http-api-moco-demo)       | 基于Java JUnit/TestNg的HTTP接口测试框架, AUT使用MOCO框架生成Mocker                             |
+| [test-framework-junit-cucumber-demo](./test-framework-junit-cucumber-demo)       | 基于Java JUnit+Cucumber并且支持中文feature文件的BDD测试框架                             |
+| [test-framework-junit-rpc-demo](./test-framework-junit-rpc-demo)       | 基于Java JUnit+Dubbo RPC的接口测试框架                             |
+| [test-framework-pytest-airtest-demo](./test-framework-pytest-airtest-demo)       | 基于Python pytest+AirTest的UI测试框架                             |
+| [test-framework-testng-cucumber-ui-demo](./test-framework-testng-cucumber-ui-demo)       | 基于Java TestNg+Cucumber+Selenium/Appium的UI测试框架                             |
+| [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 基于Java TestNg+Selenium+PageObject的UI测试框架                             |
+| [test-framework-unittest-selenium-demo](./test-framework-unittest-selenium-demo)       | 基于Python unittest+Selenium+PageObject的UI测试框架                             |
+| [test-flash](./test-flash)                         | 基于web-flash的测试工具平台 - Java                           |
 | [resource.md](./doc/md/resource.md)                         | 环境资源指南文档                              |
 
 ## FastAdmin测试平台功能展示
