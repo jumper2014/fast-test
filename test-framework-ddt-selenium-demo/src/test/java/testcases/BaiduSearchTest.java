@@ -25,7 +25,7 @@ public class BaiduSearchTest extends BasicTest {
     public void searchKeyword() throws Exception {
         String testCaseName = "BaiduSearch";
         logger.info("Start case: " + testCaseName);
-        pageObjNeedClose = runTestCase(caseFileName, testCaseSheetName, testCaseName, initialPage);
+        pageObjNeedClose = run(caseFileName, testCaseSheetName, testCaseName, initialPage);
         logger.info("End case: " + testCaseName);
 
     }
