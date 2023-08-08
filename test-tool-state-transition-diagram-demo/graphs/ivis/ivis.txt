@@ -1,0 +1,4 @@
+{"currentElementName":"点击"}
+{"currentElementName":"核身"}
+{"currentElementName":"通过"}
+{"currentElementName":"完成"}

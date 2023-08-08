@@ -17,6 +17,7 @@
 | [test-framework-testng-cucumber-ui-demo](./test-framework-testng-cucumber-ui-demo)       | 基于Java TestNg+Cucumber+Selenium/Appium的UI测试框架                             |
 | [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 基于Java TestNg+Selenium+PageObject的UI测试框架                             |
 | [test-framework-unittest-selenium-demo](./test-framework-unittest-selenium-demo)       | 基于Python unittest+Selenium+PageObject的UI测试框架                             |
+| [test-tool-state-transition-diagram-demo](./test-tool-state-transition-diagram-demo)       | 基于Python 状态转换图自动生成测试用例的工具                             |
 | [test-flash](./test-flash)                         | 基于web-flash的测试工具平台 - Java                           |
 | [resource.md](./doc/md/resource.md)                         | 环境资源指南文档                              |
 
