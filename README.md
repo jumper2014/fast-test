@@ -13,7 +13,7 @@
 | [test-framework-http-api-moco-demo](./test-framework-http-api-moco-demo)       | 基于JUnit/TestNg的HTTP接口测试框架, AUT使用MOCO框架生成Mocker                             |
 | [test-framework-junit-cucumber-demo](./test-framework-junit-cucumber-demo)       | 基于JUnit+Cucumber并且支持中文feature文件的BDD测试框架                             |
 | [test-framework-junit-rpc-demo](./test-framework-junit-rpc-demo)       | 基于JUnit+Dubbo RPC的接口测试框架                             |
-| [test-framework-pytest-airtest](./test-framework-pytest-airtest)       | 基于Pytest+AirTest的UI测试框架                             |
+| [test-framework-pytest-airtest-demo](./test-framework-pytest-airtest-demo)       | 基于Pytest+AirTest的UI测试框架                             |
 | [test-framework-testng-cucumber-ui-demo](./test-framework-testng-cucumber-ui-demo)       | 基于TestNg+Cucumber+Selenium/Appium的UI测试框架                             |
 | [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 基于TestNg+Selenium+PageObject的UI测试框架                             |
 | [test-flash](./test-flash)                         | 基于web-flash的测试工具平台                                |
