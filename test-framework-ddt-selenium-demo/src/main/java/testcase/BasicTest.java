@@ -67,10 +67,10 @@ public class BasicTest {
                             }
                             tng.run();
                         } else {
-                            logger.error("PreCondition Flag is True，but Run PreCondition Cmd Command not Match RUN CASE<XXXTest>!!!!");
+                            logger.error("PreCondition Flag is True, but Run PreCondition Cmd Command not Match RUN CASE<XXXTest>!!!!");
                         } // currently, only support all cases in [Run XXXTest]
                     } else {
-                        logger.info("PreCondition Flag is False，no need to Run PreCondition Cmd Test Case");
+                        logger.info("PreCondition Flag is False, no need to Run PreCondition Cmd Test Case");
                     }
 
                     List<TestStep> testSteps = testCase.getTestSteps();
@@ -90,15 +90,15 @@ public class BasicTest {
                             String stepMethodName = testStep.getStepPOMethodName();
                             testStep.getStepPOMethodParams();
 
-                            //用objClassName来判断引用上一步返回的对象，还是重新Initiate一个新对象进行操作
-                            if (pageName.startsWith("%")) {//从外部传的参数中取PO对象，或者从上一个步骤中接受PO对象
+                            //用objClassName来判断引用上一步返回的对象, 还是重新Initiate一个新对象进行操作
+                            if (pageName.startsWith("%")) {//从外部传的参数中取PO对象, 或者从上一个步骤中接受PO对象
                                 if (existingPageObject == null && initialPageObj != null) {
                                     logger.info("Execute step {}", (j + 1));
                                     pageObj = initialPageObj;
                                     pageObjClass = initialPageObj.getClass();
                                     logger.info("page object class name is {}", pageObjClass.toString());
                                 } else if (existingPageObject != null) {
-                                    logger.info("Execute step {}，need previous page or returned page", (j + 1));
+                                    logger.info("Execute step {}, need previous page or returned page", (j + 1));
                                     pageObj = existingPageObject;
                                     pageObjClass = existingPageObject.getClass();
                                     logger.info("previous Page class name is {}", pageObjClass.toString());
@@ -106,13 +106,13 @@ public class BasicTest {
                                     logger.info("configuration error");
                                 }
                             } else {
-                                logger.info("Execute step {}，no need to get previous step object", (j + 1));
+                                logger.info("Execute step {}, no need to get previous step object", (j + 1));
                                 String pageObjClassName = ConfigReader.getPageClassName(pageName);
                                 pageObjClass = Class.forName(pageObjClassName);
                             }
 
                             String[] stepPOMethodParamStrings = testStep.getStepPOMethodParams();
-                            logger.info("Excel CaseStep：{}，Object：{}，Method：{}，parameter number：{}",
+                            logger.info("Excel CaseStep：{}, Object：{}, Method：{}, parameter number：{}",
                                     testStep.getStepIndex(), pageObjClass != null ? pageObjClass.toString() : null, stepMethodName,
                                     stepPOMethodParamStrings != null ? stepPOMethodParamStrings.length : 0);
 
@@ -121,26 +121,25 @@ public class BasicTest {
 
                             if (stepPOMethodParamStrings != null) {
                                 int paramLength = stepPOMethodParamStrings.length;
-                                argsClass = new Class[paramLength]; //invoke方法中需要用到的类型
+                                argsClass = new Class[paramLength]; // for invoke call
                                 stepArguments = new Object[paramLength];
 
                                 for (int x = 0; x < paramLength; x++) {
                                     String stepPOMethodParamString = stepPOMethodParamStrings[x];
                                     if (stepPOMethodParamString != null && stepPOMethodParamString.startsWith("%POFromPrevStep")) {
-                                        //设置动态参数，如果配置时以%POFromPrevStep开始，则用上一步骤的返回值进行替换
-                                        argsClass[x] = BasePage.class; //替换参数类型为PageObject
+                                        //if start with %POFromPrevStep
+                                        argsClass[x] = BasePage.class; // replace the parameter with PageObject
                                         stepArguments[x] = existingPageObject;
-                                        logger.info("替换参数，第{}个参数替换为页面对象{}", (x + 1), existingPageObject != null ? existingPageObject.toString() : "");
+                                        logger.info("replace parameters, No. {} parameter is replaced with pageObject{}", (x + 1), existingPageObject != null ? existingPageObject.toString() : "");
                                     } else {
                                         argsClass[x] = String.class;
                                         if (stepPOMethodParamString != null && stepPOMethodParamString.contains("%") && stepPOMethodParamString.contains("ReturnValue") && previousStepReturnObj != null) {
-                                            //设置动态参数，如果配置时以%开始，则用上一步骤的返回值进行替换
                                             stepArguments[x] = previousStepReturnObj.toString();
-                                            logger.info("替换参数，第{}个参数替换为{}", (x + 1), previousStepReturnObj != null ? previousStepReturnObj.toString() : "");
+                                            logger.info("replace parameters, No. {} parameter is replaced with {}", (x + 1), previousStepReturnObj != null ? previousStepReturnObj.toString() : "");
                                         } else if (("\"\"").equals(stepPOMethodParamString)) {
-                                            //如果参数为空，Case中使用""代表，代码中进行替换
+                                            //如果参数为空, Case中使用""代表, 代码中进行替换
                                             stepArguments[x] = "";
-                                            logger.info("替换参数，第{}个参数替换为空", (x + 1));
+                                            logger.info("replace parameters, No. {} parameter is replaced with ''", (x + 1));
                                         } else {
                                             stepArguments[x] = stepPOMethodParamString;
                                         }
@@ -148,52 +147,51 @@ public class BasicTest {
                                 }
                             }
 
-                            //动态调用Object的方法
+                            // call Object method
                             Object returnObj = null;
                             try {
                                 if (pageObjClass != null) {
                                     Method stepMethod = pageObjClass.getMethod(stepMethodName, argsClass);
-                                    logger.info("动态调用PO的方法 {}", stepMethod == null ? "Null" : stepMethod.toString());
+                                    logger.info("Dynamic call PO method {}", stepMethod == null ? "Null" : stepMethod.toString());
                                     returnObj = stepMethod.invoke(pageObjClass.cast(pageObj), stepArguments);
                                 }
                             } catch (Exception e) {
-                                logger.error("按Case配置调用页面方法{}时出错，出错信息{}", stepMethodName, e.getMessage());
+                                logger.error("call Case method {} error, message {}", stepMethodName, e.getMessage());
                                 e.printStackTrace();
                                 throw e;
                             }
 
-                            // boolean poChanged = false;
-                            if (returnObj != null) {//如果有返回值，则设置到上一个步骤返回对象中，给下一步使用
+                            if (returnObj != null) {//如果有返回值, 则设置到上一个步骤返回对象中, 给下一步使用
                                 logger.info("步骤{}调用方法的返回类型为{}", (j + 1), returnObj.getClass());
                                 if (returnObj.getClass().toString().endsWith("Page")) {
                                     logger.info("更新使用中的PageObject对象为{}", returnObj.getClass());
                                     existingPageObject = returnObj;
-                                    // poChanged = true;
+
                                 }
                                 previousStepReturnObj = returnObj;
                             }
 
-                            //执行方法后，如果是InquiryPage等待1秒钟；可能页面数据需要刷新，比如数据查询, 不管页面对象是否改变
+                            //执行方法后, 如果是InquiryPage等待1秒钟；可能页面数据需要刷新, 比如数据查询, 不管页面对象是否改变
                             if (existingPageObject != null && existingPageObject.getClass().toString().endsWith("InquiryPage")) {//&& poChanged
                                 int waitSecond = 1;
-                                logger.info("等待{}秒钟，页面数据可能需要刷新", waitSecond);
+                                logger.info("等待{}秒钟, 页面数据可能需要刷新", waitSecond);
                                 Thread.sleep(waitSecond * 1000);
                             }
 
-                            pageObjNeedClose = existingPageObject;//把当前页面对象赋给参数，以备最后测试结束后关闭页面
+                            pageObjNeedClose = existingPageObject;//把当前页面对象赋给参数, 以备最后测试结束后关闭页面
                         } else {
-                            logger.info("执行步骤{}的RunFlag设置为No，忽略执行该步骤！", testStep.getStepIndex());
+                            logger.info("Step {} RunFlag is No, ignore the step", testStep.getStepIndex());
                         }
                     }
                 } else {
-                    logger.info("【Case Ignored】找到Case名为{}的用例, 但Case RunFlag设置为No，忽略执行该用例下的所有步骤，直接返回Case执行完毕信息！", testCaseName);
+                    logger.info("[Case Ignored] find Case {},but Case RunFlag is No, ignore the case", testCaseName);
                     pageObjNeedClose = initialPageObj;
                 }
             }
         }
 
         if (!caseFound) {
-            logger.error("Can't find Case {}，please check excel!!!", testCaseName);
+            logger.error("Can't find Case {}, please check excel!!!", testCaseName);
             throw new Exception("CaseName not found in Excel");
         }
 

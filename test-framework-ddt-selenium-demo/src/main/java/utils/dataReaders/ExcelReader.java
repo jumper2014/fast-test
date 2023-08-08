@@ -22,7 +22,7 @@ public class ExcelReader {
         try {
             workbook = new XSSFWorkbook(fileName);
         } catch (IOException e) {
-            logger.error("读取Excel文件时出错，错误信息：{}", e.getMessage());
+            logger.error("Read Excel fail, error message：{}", e.getMessage());
         }
     }
 
@@ -57,14 +57,12 @@ public class ExcelReader {
     }
 
     public Map<String, Map<String, String>> readExcelData2Maps(String sheetName) throws Exception {
-        // 循环工作表Sheet
         XSSFSheet sheet = workbook.getSheet(sheetName);
         Map<String, Map<String, String>> rowMap = new HashMap<>();
 
         try {
-            // 循环行Row
             XSSFRow titleRow = sheet.getRow(0);
-            logger.info("工作表{}总共有{}行数据", sheetName, sheet.getLastRowNum());
+            logger.info("Sheet {} has {} rows", sheetName, sheet.getLastRowNum());
             for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
                 XSSFRow row = sheet.getRow(rowNum);
 
@@ -75,19 +73,15 @@ public class ExcelReader {
                 Map<String, String> map = new HashMap<>();
 
                 XSSFCell firstColumnCell = row.getCell(0);
-                // 循环列Cell
                 for (int cellNum = 0; cellNum < titleRow.getLastCellNum(); cellNum++) {
-                    //每行每列的单元格取值
                     XSSFCell xssfCell = row.getCell(cellNum);
-                    //每个列对应的列名（第一行）
                     XSSFCell titleRowCell = titleRow.getCell(cellNum);
-                    //每列加上列名作为Key-Value存放
                     map.put(getCellValue(titleRowCell), getCellValue(xssfCell));
                 }
                 rowMap.put(getCellValue(firstColumnCell), map);
             }
         } catch (Exception e) {
-            logger.error("读取Excel工作表到Maps时出错，错误信息：{}", e.getMessage());
+            logger.error("Read Excel sheet to Maps fail, error message：{}", e.getMessage());
         } finally {
             workbook.close();
         }
@@ -103,20 +97,16 @@ public class ExcelReader {
         return getDataArea(sheetName, 2, 1);
     }
 
-    //将Excel的有效行列读入一个二维数组中
     public String[][] getDataArea(String sheetName, int rowStartIndex, int colStartIndex) {
         String[][] dataSets = null;
-
         try {
             XSSFSheet sheet = this.workbook.getSheet(sheetName);
             int totalRow = sheet.getLastRowNum() + 1;
             int totalCol = sheet.getRow(0).getLastCellNum();
             if (rowStartIndex < totalRow && colStartIndex < totalCol) {
                 dataSets = new String[totalRow - rowStartIndex + 1][totalCol - colStartIndex + 1];
-
                 for (int i = rowStartIndex - 1; i < totalRow; i++) {
                     XSSFRow rows = sheet.getRow(i);
-
                     for (int j = colStartIndex - 1; j < totalCol; j++) {
                         XSSFCell cell = rows.getCell(j);
                         dataSets[i - rowStartIndex + 1][j - colStartIndex + 1] = getCellValue(cell);
@@ -124,7 +114,7 @@ public class ExcelReader {
                 }
             }
         } catch (Exception e) {
-            logger.error("读取Excel工作表（开始行{}，开始列{}）时出错，错误信息：{}", rowStartIndex, colStartIndex, e.getStackTrace());
+            logger.error("Read Excel Sheet(start line {}, start collumn {})fail, error message：{}", rowStartIndex, colStartIndex, e.getStackTrace());
         }
 
         return dataSets;
@@ -184,7 +174,7 @@ public class ExcelReader {
                 valuesBuf.append(getCellValue(cell));
             }
         } catch (Exception e) {
-            logger.error("读取Excel工作表第{}行信息时出错，错误信息：{}", rowNum, e.getStackTrace());
+            logger.error("Read Excel Sheet line {} fail, error message：{}", rowNum, e.getStackTrace());
             return null;
         }
 

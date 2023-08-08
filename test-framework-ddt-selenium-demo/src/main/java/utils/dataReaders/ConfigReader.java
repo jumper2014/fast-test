@@ -23,7 +23,7 @@ public class ConfigReader {
             pageObjectClassName = prop.getProperty(pageName);
             if (pageObjectClassName == null) {
                 pageObjectClassName = pageName;
-                logger.info("页面关键字{}在配置文件中未配置，尝试直接使用", pageName);
+                logger.info("页面关键字{}在配置文件中未配置, 尝试直接使用", pageName);
             } else {
                 logger.info("已读出{}在配置文件中Java类是：{}", pageName, pageObjectClassName);
             }
@@ -52,7 +52,7 @@ public class ConfigReader {
             pageObjectClassName = prop.getProperty(testClassName);
             if (pageObjectClassName == null) {
                 pageObjectClassName = testClassName;
-                logger.info("页面关键字{}在配置文件中未配置，尝试直接使用", testClassName);
+                logger.info("页面关键字{}在配置文件中未配置, 尝试直接使用", testClassName);
             } else {
                 logger.info("已读出{}在配置文件中Java类是：{}", testClassName, pageObjectClassName);
             }
@@ -82,7 +82,7 @@ public class ConfigReader {
             value = prop.getProperty(keyName);
             if (value == null) {
                 value = keyName;
-                logger.info("{}在配置文件未配置，直接使用", keyName);
+                logger.info("{}在配置文件未配置, 直接使用", keyName);
             } else {
                 logger.info("已读出{}在配置文件中的值为：{}", keyName, value);
             }
@@ -111,7 +111,7 @@ public class ConfigReader {
             value = prop.getProperty(keyName);
             if (value == null) {
                 value = keyName;
-                logger.info("{}在配置文件未配置，直接使用", keyName);
+                logger.info("{}在配置文件未配置, 直接使用", keyName);
             } else {
                 logger.info("已读出{}在配置文件中的值为：{}", keyName, value);
             }
@@ -140,7 +140,7 @@ public class ConfigReader {
             value = prop.getProperty(keyName);
             if (value == null) {
                 value = keyName;
-                logger.info("{}在配置文件未配置，直接使用", keyName);
+                logger.info("{}在配置文件未配置, 直接使用", keyName);
             } else {
                 logger.info("已读出{}在配置文件中的值为：{}", keyName, value);
             }
@@ -163,7 +163,7 @@ public class ConfigReader {
             value = prop.getProperty(KeyName);
             if (value == null) {
                 value = KeyName;
-                logger.info("{}在配置文件未配置，直接使用", KeyName);
+                logger.info("{}在配置文件未配置, 直接使用", KeyName);
             } else {
                 logger.info("已读出{}在配置文件中的值为：{}", KeyName, value);
             }

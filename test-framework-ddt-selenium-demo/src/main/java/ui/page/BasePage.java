@@ -158,7 +158,7 @@ public class BasePage {
      *
      * @param fieldName           选择输入框名字
      * @param clueAndItemKeyWords 搜索下拉框輸入的關鍵字
-     * @param dropdownListName    下拉列表的名字，定义在Page Class和element excel文件中
+     * @param dropdownListName    下拉列表的名字, 定义在Page Class和element excel文件中
      * @param waitSec             等待下拉列表出现的最长等待时间
      */
     public void searchThenSelect(String fieldName, String clueAndItemKeyWords, String dropdownListName, int waitSec, String hideItemBtn) {
@@ -171,14 +171,14 @@ public class BasePage {
      *
      * @param field               选择输入框
      * @param clueAndItemKeyWords 搜索下拉框輸入的關鍵字
-     * @param dropdownListName    下拉列表的名字，定义在Page Class和element excel文件中
+     * @param dropdownListName    下拉列表的名字, 定义在Page Class和element excel文件中
      * @param waitSec             等待下拉列表出现的最长等待时间
      */
     public void searchThenSelect(WebElement field, String clueAndItemKeyWords, String dropdownListName, int waitSec, String hideItemBtn) {
         String[] clueAndItemKeyWordArray = clueAndItemKeyWords.split(KEYWORDS_DELIMITER);
         fillInputBox(field, clueAndItemKeyWordArray[0]);
         logger.info("可搜索输入框{}中先输入关键字{}进行查找", field.getText(), clueAndItemKeyWordArray[0]);
-        forceWait(2);//强制等待2秒，等所以下拉列表的元素都加载完成
+        forceWait(2);//强制等待2秒, 等所以下拉列表的元素都加载完成
         selectOneItem(dropdownListName, clueAndItemKeyWordArray[1], waitSec, hideItemBtn, true);
     }
 
@@ -186,7 +186,7 @@ public class BasePage {
      * Click Dropdown list后从下拉列表中选择某选项
      *
      * @param fieldName    Dropdown List的名字
-     * @param itemListName 下拉列表的名字，定义在Page Class和element excel文件中
+     * @param itemListName 下拉列表的名字, 定义在Page Class和element excel文件中
      * @param itemKeyword  选项名称关键字
      * @param waitSec      等待下拉列表出现的最长等待时间
      */
@@ -199,7 +199,7 @@ public class BasePage {
      * Click Dropdown list后从下拉列表中选择某选项
      *
      * @param fieldName    Dropdown List的名字
-     * @param itemListName 下拉列表的名字，定义在Page Class和element excel文件中
+     * @param itemListName 下拉列表的名字, 定义在Page Class和element excel文件中
      * @param itemKeyword  选项名称关键字
      * @param waitSec      等待下拉列表出现的最长等待时间
      */
@@ -212,21 +212,21 @@ public class BasePage {
      * Click Dropdown list后从下拉列表中选择某选项
      *
      * @param field        选择框
-     * @param itemListName 下拉列表的名字，定义在Page Class和element excel文件中
+     * @param itemListName 下拉列表的名字, 定义在Page Class和element excel文件中
      * @param itemKeyword  选项名称关键字
      * @param waitSec      等待下拉列表出现的最长等待时间
      */
     public void directSelect(WebElement field, String itemListName, String itemKeyword, int waitSec, String hideItemBtn, boolean itemHideFlag) {
         field.click();
         logger.info("点击出现下拉框");
-        forceWait(1);//强制等待1秒，等下拉列表数据加载
+        forceWait(1);//强制等待1秒, 等下拉列表数据加载
         selectOneItem(itemListName, itemKeyword, waitSec, hideItemBtn, itemHideFlag);
     }
 
     /**
      * 从下拉列表中选择某选项
      *
-     * @param itemListName 下拉列表的名字，定义在Page Class和element excel文件中
+     * @param itemListName 下拉列表的名字, 定义在Page Class和element excel文件中
      * @param itemKeyword  选项的关键字
      * @param waitSec      等待下拉列表出现的最长等待时间
      */
@@ -241,7 +241,7 @@ public class BasePage {
         try {
             List<WebElement> itemElementList = new ArrayList<>();
             if (searchClue.contains("+") && searchClue.contains("%")) {//两步查询法
-                logger.info("两步查询元素，查询线索：{}", searchClue);
+                logger.info("两步查询元素, 查询线索：{}", searchClue);
                 String[] xpathStrings = searchClue.split("[+]");//按字符+分割
                 relativeXpath = xpathStrings[1];
 
@@ -250,20 +250,20 @@ public class BasePage {
                 String cohesiveElementName;
                 if (cohesiveElementNameStr.contains("{") && cohesiveElementNameStr.contains("}")) {
                     hasFlagDetail = true;
-                    String[] cohesiveElementStrs = cohesiveElementNameStr.split("[{]");//括号前名字，括号内标识
+                    String[] cohesiveElementStrs = cohesiveElementNameStr.split("[{]");//括号前名字, 括号内标识
                     cohesiveElementName = cohesiveElementStrs[0];
                     flagDetail = cohesiveElementStrs[1].replaceAll("}", "");
-                    logger.info("有标识Flag设置，CohesiveElement Name= {}, Xpath= {}，FlagDetail= \"{}\"", cohesiveElementName, getBy(cohesiveElementName), flagDetail);
+                    logger.info("有标识Flag设置, CohesiveElement Name= {}, Xpath= {}, FlagDetail= \"{}\"", cohesiveElementName, getBy(cohesiveElementName), flagDetail);
                 } else {//没有配置标识信息
                     cohesiveElementName = cohesiveElementNameStr;
-                    logger.info("查询线索中没有标识Flag设置，关联元素名称为{}", cohesiveElementName);
+                    logger.info("查询线索中没有标识Flag设置, 关联元素名称为{}", cohesiveElementName);
                 }
 
                 List<WebElement> cohesiveElements = waitAndFindElementsByName(cohesiveElementName, 10);
 
                 WebElement displayedCohesiveElement = null;
                 if (!hasFlagDetail || (hasFlagDetail && flagDetail.contains("displayedFlag=true"))) {//以下为找到显示的DIV块过程
-                    logger.info("查询线索中不含标识信息，或含标识信息但标识信息值为{displayedFlag=true}");
+                    logger.info("查询线索中不含标识信息, 或含标识信息但标识信息值为{displayedFlag=true}");
                     for (WebElement cohesiveElement : cohesiveElements) {
                         if (cohesiveElement.isDisplayed()) {
                             logger.info("当前显示的关联元素{}已出现", cohesiveElementName);
@@ -282,7 +282,7 @@ public class BasePage {
                     apsBizModuleGrpTreeMenu = true;
                 }
             } else {//一步直接查询元素
-                logger.info("一步查询元素，查询线索：{}", searchClue);
+                logger.info("一步查询元素, 查询线索：{}", searchClue);
                 itemElementList = waitAndFindElementsByName(itemListName, waitSec);
             }
 
@@ -292,7 +292,7 @@ public class BasePage {
                 if (!"".equals(text) && text.equals(itemKeyword)) {
                     logger.info("下拉列表中含匹配关键字{}的显示值为：{}", itemKeyword, text);
                     if (apsBizModuleGrpTreeMenu) {//Item List本身不可以被点击选择
-                        logger.info("元素{}找到但不可点击，需要点击前面同级Label元素: {}", itemKeyword, element.toString());
+                        logger.info("元素{}找到但不可点击, 需要点击前面同级Label元素: {}", itemKeyword, element.toString());
                         List<WebElement> labelElements = element.findElements(By.xpath(relativeXpath));//Click 文字左边的checkbox label
                         if (labelElements.size() == 1) {//有且仅有一个同级Label
                             logger.info("已从下拉列表{}中选取关键字为\"{}\"的选项, checkboxXPath:{}", itemListName, itemKeyword, searchClue);
@@ -303,7 +303,7 @@ public class BasePage {
                             mustClickToHideItem = true;
                             break;
                         } else {
-                            logger.info("根据路径{}未找到元素，请检查Xpath是否正确", searchClue);
+                            logger.info("根据路径{}未找到元素, 请检查Xpath是否正确", searchClue);
                         }
                     } else {//Item List本身可以点击选择
                         jsClick(element);
@@ -314,20 +314,20 @@ public class BasePage {
                 }
             }
         } catch (Exception e) {
-            logger.error("查找页面下拉列表元素{}或点击选项\"{}\"时报错，错误信息：{}", itemListName, itemKeyword, e.getMessage());
+            logger.error("查找页面下拉列表元素{}或点击选项\"{}\"时报错, 错误信息：{}", itemListName, itemKeyword, e.getMessage());
             e.printStackTrace();
         } finally {
             if (!itemFound || mustClickToHideItem) {
                 if (!itemFound) {
-                    logger.error(":( 选项 \"{}\"未找到，点击按钮{}隐藏下拉列表项", itemKeyword, hideItemBtn);
+                    logger.error(":( 选项 \"{}\"未找到, 点击按钮{}隐藏下拉列表项", itemKeyword, hideItemBtn);
                 } else if (itemFound && mustClickToHideItem) {
-                    logger.info(":) 选项 \"{}\"已找到，仍需点击按钮{}隐藏下拉列表项", itemKeyword, hideItemBtn);
+                    logger.info(":) 选项 \"{}\"已找到, 仍需点击按钮{}隐藏下拉列表项", itemKeyword, hideItemBtn);
                 }
                 WebElement element = findElementByName(hideItemBtn);
                 waitForElementToBeClickable(element, 5); //等待元素可以被点击
                 element.click();
             } else {
-                logger.info(":) 选项 \"{}\"已找到，下拉列表项自动隐藏", itemKeyword);
+                logger.info(":) 选项 \"{}\"已找到, 下拉列表项自动隐藏", itemKeyword);
             }
         }
     }
@@ -343,7 +343,7 @@ public class BasePage {
                 jsClick(findElementBy("xpath", radioBoxBtnXPath));
             }
         } catch (Exception e) {
-            logger.error("查找页面Radio Box{}或点击选项{}时报错，错误信息：{}", radioBoxItems, chosenItem, e.getMessage());
+            logger.error("查找页面Radio Box{}或点击选项{}时报错, 错误信息：{}", radioBoxItems, chosenItem, e.getMessage());
             e.printStackTrace();
         }
     }
@@ -356,17 +356,17 @@ public class BasePage {
      */
     public void tickCheckBox(String elementName, String tickFlag) {
         WebElement checkBox = findElementByName(elementName);
-        logger.info("复选框状态已勾选：{}，操作标识是否勾选：{}", checkBox.isSelected(), tickFlag);
+        logger.info("复选框状态已勾选：{}, 操作标识是否勾选：{}", checkBox.isSelected(), tickFlag);
         try {
             if (!checkBox.isSelected() && ("TRUE").equalsIgnoreCase(tickFlag)) {
-                logger.info("Checkbox处于未勾选状态，根据Checkbox勾选标识{}，点击进行勾选", tickFlag);
+                logger.info("Checkbox处于未勾选状态, 根据Checkbox勾选标识{}, 点击进行勾选", tickFlag);
                 jsClick(checkBox);
             } else if (checkBox.isSelected() && ("FALSE").equalsIgnoreCase(tickFlag)) {
-                logger.info("Checkbox已选中状态，根据Checkbox勾选标识{}，点击取消勾选", tickFlag);
+                logger.info("Checkbox已选中状态, 根据Checkbox勾选标识{}, 点击取消勾选", tickFlag);
                 jsClick(checkBox);
             }
         } catch (Exception e) {
-            logger.error("操作复选框{}时报错，错误信息：{}", elementName, e.getMessage());
+            logger.error("操作复选框{}时报错, 错误信息：{}", elementName, e.getMessage());
             throw e;
         }
     }
@@ -398,7 +398,7 @@ public class BasePage {
 
 
     /**
-     * 查询出页面的某个元素，以备后续操作
+     * 查询出页面的某个元素, 以备后续操作
      *
      * @param elementName 元素名称
      */
@@ -413,7 +413,7 @@ public class BasePage {
         if (elementInfo == null) {
             logger.error("Element信息错误：元素名称 {} 未在对应Excel文件中正确配置!!!", elementName);
         } else {
-            logger.info("Element信息：元素名称{}，按类型{}查找，查找线索{}", elementName,
+            logger.info("Element信息：元素名称{}, 按类型{}查找, 查找线索{}", elementName,
                     elementInfo.getType(), elementInfo.getLocationClue());
         }
 
@@ -422,50 +422,50 @@ public class BasePage {
             element = waitAndFindElementByName(elementName, 20);
             logger.info("元素{}出现", elementName);
         } catch (Exception e) {
-            logger.error("找页面元素{}时报错，错误信息：{}", elementName, e.getMessage());
+            logger.error("找页面元素{}时报错, 错误信息：{}", elementName, e.getMessage());
             throw e;
         }
         return element;
     }
 
     /**
-     * 查询出页面的某个元素，以备后续操作
+     * 查询出页面的某个元素, 以备后续操作
      *
      * @param elementName 元素名称
      * @param waitSec     等待秒数
      */
     public List<WebElement> waitAndFindElementsByName(String elementName, int waitSec) {
-        //显示等待DropDown List元素出现，visibilityOfAllElement有时候会报错，更换成prensenceOfAllElements，因为有时候元素不一定可见
+        //显示等待DropDown List元素出现, visibilityOfAllElement有时候会报错, 更换成prensenceOfAllElements, 因为有时候元素不一定可见
         WebDriverWait wait = new WebDriverWait(this.getDriver(), waitSec);
         return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(getBy(elementName)));//只要存在一个就是true
     }
 
     /**
-     * 查询出页面的某个元素，以备后续操作
+     * 查询出页面的某个元素, 以备后续操作
      *
      * @param elementName 元素名称
      * @param waitSec     等待秒数
      */
     public WebElement waitAndFindElementByName(String elementName, int waitSec) {
-        //显示等待DropDown List所有元素出现，visibilityOfAllElement有时候报错，更换成prensenceOfAllElements
+        //显示等待DropDown List所有元素出现, visibilityOfAllElement有时候报错, 更换成prensenceOfAllElements
         WebDriverWait wait = new WebDriverWait(this.getDriver(), waitSec);
         return wait.until(ExpectedConditions.presenceOfElementLocated(getBy(elementName)));
     }
 
     public void waitForElementToBeClickable(WebElement element, long timeInSec) {
-        //判断某个元素中是否可见并且是enable的，这样才叫clickable；
+        //判断某个元素中是否可见并且是enable的, 这样才叫clickable；
         WebDriverWait wait = new WebDriverWait(this.getDriver(), timeInSec);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void waitForElementToBeVisible(WebElement element, long timeInSec) {
-        //判断某个元素中是否可见并且是enable的，这样才叫clickable；
+        //判断某个元素中是否可见并且是enable的, 这样才叫clickable；
         WebDriverWait wait = new WebDriverWait(this.getDriver(), timeInSec);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     /**
-     * 查询出页面的某个元素，以备后续操作
+     * 查询出页面的某个元素, 以备后续操作
      *
      * @param elementName 元素名称
      */
@@ -474,21 +474,21 @@ public class BasePage {
         try {
             WebElement element = this.findElementBy(elementInfo.getType(), elementInfo.getLocationClue());
 
-            //运用Java反射机制，设置成员变量
+            //运用Java反射机制, 设置成员变量
             Field field = this.getClass().getDeclaredField(elementName);
             if (field.getType() == WebElement.class) {
                 field.setAccessible(true);
                 field.set(this, element);
             }
         } catch (Exception e) {
-            logger.error("找元素或设置成员变量{}时报错，错误信息：{}", elementName, e.getMessage());
+            logger.error("找元素或设置成员变量{}时报错, 错误信息：{}", elementName, e.getMessage());
         }
-        logger.info("Element Found：元素名称{}，按类型{}查找，查找线索{}", elementName,
+        logger.info("Element Found：元素名称{}, 按类型{}查找, 查找线索{}", elementName,
                 elementInfo.getType(), elementInfo.getLocationClue());
     }
 
     /**
-     * 查询出指定列表中的页面，以备后续操作时使用
+     * 查询出指定列表中的页面, 以备后续操作时使用
      *
      * @param elementNames 元素名称
      */
@@ -499,14 +499,14 @@ public class BasePage {
             try {
                 initialElementByName(oneElementName);//按元素名称查找按钮元素
             } catch (Exception e) {
-                logger.error("初始化指定的页面元素{}时报错，错误信息：{}", oneElementName, e.getStackTrace());
+                logger.error("初始化指定的页面元素{}时报错, 错误信息：{}", oneElementName, e.getStackTrace());
             }
         }
         logger.info("批量初始化页面元素結束！");
     }
 
     /**
-     * 最小化浏览器窗口，暂时没有使用
+     * 最小化浏览器窗口, 暂时没有使用
      */
     public void minimize() {
     }
@@ -556,14 +556,14 @@ public class BasePage {
             textContent = this.getElmentText(element);
             logger.info("页面对象{}的文本信息为：{}", this.getClass().toGenericString(), textContent);
         } catch (Exception e) {
-            logger.error("获取元素{}文本信息时报错，错误信息：{}", elementName, e.getMessage());
+            logger.error("获取元素{}文本信息时报错, 错误信息：{}", elementName, e.getMessage());
             throw e;
         }
         return textContent;
     }
 
     /**
-     * 页面操作方法：点击按钮后，根据元素名称取得message的文本内容
+     * 页面操作方法：点击按钮后, 根据元素名称取得message的文本内容
      */
     public String getMsgAfterBtnClick(String btnName, String toastMsg) {
         String textContent;
@@ -580,7 +580,7 @@ public class BasePage {
     }
 
     /**
-     * 根据按钮名称，点击无页面跳转的按钮
+     * 根据按钮名称, 点击无页面跳转的按钮
      *
      * @param btnName 按钮名称
      */
@@ -591,12 +591,12 @@ public class BasePage {
             jsClick(element);
             logger.info("按钮{}点击完成", btnName);
         } catch (Exception e) {
-            logger.error("获取或点击按钮{}时报错，错误信息：{}", btnName, e.getMessage());
+            logger.error("获取或点击按钮{}时报错, 错误信息：{}", btnName, e.getMessage());
         }
     }
 
     /**
-     * 根据按钮名称，点击无页面跳转的按钮
+     * 根据按钮名称, 点击无页面跳转的按钮
      *
      * @param btnName 按钮名称
      */
@@ -609,7 +609,7 @@ public class BasePage {
 
 
     /**
-     * 根据按钮名称，点击页面按钮，进行跳转
+     * 根据按钮名称, 点击页面按钮, 进行跳转
      *
      * @param btnName         按钮名称
      * @param forwardPageName 跳转后的页面对象
@@ -622,9 +622,9 @@ public class BasePage {
     }
 
     /**
-     * 根据按钮名称，点击页面按钮，进行跳转
+     * 根据按钮名称, 点击页面按钮, 进行跳转
      *
-     * @param element         按钮元素，当需要多次操作时，可以一次初始化，多次调用该方法
+     * @param element         按钮元素, 当需要多次操作时, 可以一次初始化, 多次调用该方法
      * @param forwardPageName 跳转后的页面对象
      * @return 跳转后的页面对象
      */
@@ -635,7 +635,7 @@ public class BasePage {
     }
 
     /**
-     * 用JS执行页面元素点击操作，当元素被透明遮罩层覆盖，无法点击时使用
+     * 用JS执行页面元素点击操作, 当元素被透明遮罩层覆盖, 无法点击时使用
      *
      * @param element 页面元素
      */
@@ -655,7 +655,7 @@ public class BasePage {
     }
 
     /**
-     * 用Actions鼠标事件执行页面元素点击操作,当元素被透明遮罩层覆盖，无法点击时使用
+     * 用Actions鼠标事件执行页面元素点击操作,当元素被透明遮罩层覆盖, 无法点击时使用
      *
      * @param element 页面元素
      */
@@ -702,7 +702,7 @@ public class BasePage {
     }
 
     /**
-     * 元素操作组合，清空后重新输入
+     * 元素操作组合, 清空后重新输入
      *
      * @param element     页面元素
      * @param inputString 新的输入文本
@@ -714,7 +714,7 @@ public class BasePage {
     }
 
     /**
-     * 元素操作组合，清空后重新输入
+     * 元素操作组合, 清空后重新输入
      *
      * @param elementName 页面元素名称
      * @param inputString 新的输入文本
@@ -756,7 +756,7 @@ public class BasePage {
      * @throws Exception 错误
      */
     public Object createPOByName(String pageObjName) throws Exception {
-        //读取配置的页面Class名称，运用Java反射机制，取到带WebDriver参数的构造器，创建一个Page对象
+        //读取配置的页面Class名称, 运用Java反射机制, 取到带WebDriver参数的构造器, 创建一个Page对象
         String returnObjectClassName = ConfigReader.getPageClassName(pageObjName);
         Constructor<?> con = Class.forName(returnObjectClassName).getConstructor(WebDriver.class);
         Object pageObj = con.newInstance(this.getDriver());
