@@ -42,6 +42,8 @@
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/lockuser.PNG)
 - 生成批量文件示例
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/batch.PNG)
+- 启动本地命令
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/lcommand.PNG)
 
 #### 测试工具示例
 - 常见测试相关库使用示例
