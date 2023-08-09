@@ -40,7 +40,8 @@
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/km2excel.PNG)
 - 数据库操作示例  
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/lockuser.PNG)
-
+- 生成批量文件示例
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/batch.PNG)
 
 #### 测试工具示例
 - 常见测试相关库使用示例

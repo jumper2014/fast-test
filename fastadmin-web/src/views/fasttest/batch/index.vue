@@ -17,11 +17,26 @@
           <el-button type="success" size="mini" icon="el-icon-refresh-right" @click.native="createBatch">生成文件</el-button>
         </el-col>
       </el-row>
+      <el-row>
+        <p>转换后的文件名:</p>
+      </el-row>
+      <el-row>
+        <p>{{ fileOnServer }}</p>
+      </el-row>
+      <el-row>
+        <el-button
+          type="success"
+          size="mini"
+          icon="el-icon-download"
+          @click="handleDownLoad"
+        >下载批量文件</el-button>
+      </el-row>
     </div>
   </div>
 </template>
 <script>
 
+import { mapGetters } from 'vuex'
 import create from '@/api/fasttest/batch'
 export default {
   name: 'Batch',
@@ -29,8 +44,15 @@ export default {
     return {
       file: {
         total: ''
-      }
+      },
+      fileOnServer: ''
     }
+  },
+  computed: {
+    ...mapGetters([
+      'baseApi',
+      'fileUploadApi'
+    ])
   },
   methods: {
     createBatch() {
@@ -39,9 +61,13 @@ export default {
           message: '文件生成成功',
           type: 'success'
         })
+        this.fileOnServer = response
       }).catch(function(err) {
         console.log(err)
       })
+    },
+    handleDownLoad() {
+      window.location.href = this.baseApi + '/api/batch/download?fileName=' + this.fileOnServer
     }
   }
 }
