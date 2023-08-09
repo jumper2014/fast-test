@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>fasttest</artifactId>
-    <name>FastTest测试平台</name>
+    <name>FastTest测试工具</name>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

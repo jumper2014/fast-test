@@ -32,9 +32,8 @@ import java.util.UUID;
 public class Km2XlsController {
     private static final Logger logger = LoggerFactory.getLogger(Km2XlsController.class);
     //在文件操作中，不用/或者\最好，推荐使用File.separator
-    private final static String fileDir = "files";
+    private final static String fileDir = "km";
     private final static String rootPath = System.getProperty("user.home") + File.separator + fileDir + File.separator;
-    String storagePath;
 
     @PostMapping
     @AnonymousAccess

@@ -1,4 +1,4 @@
-package cn.enilu.flash.api.helper;
+package me.zhengjie.utils.fasttest;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -10,7 +10,7 @@ import java.util.Locale;
  * Created by ijumper on 9/18/2020.
  * Date time lib for data generator
  */
-public class DDate {
+public class DateHelper {
 
     static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     static final SimpleDateFormat millSecondFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); // 用于生成MQ数据
