@@ -13,18 +13,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * @Description: soringboot整合vue, 文件上传下载
- * @Author: yanhonghai
- * @Date: 2019/4/17 0:56
- */
 //上传不要用@Controller,用@RestController
 @RestController
 @RequiredArgsConstructor
@@ -55,8 +49,6 @@ public class Km2XlsController {
                     List<List<String>> allCaseList = JsonHelper.readJson(storagePath);
                     System.out.printf("Total case number is: " + allCaseList.size());
                     ExcelHelper.writeToExcel(allCaseList, rootPath, xlsFile);
-//                    return ResponseEntity.ok(xlsFile + ".xls");
-
                 } catch (IOException e) {
                     logger.error(ExceptionUtils.getStackTrace(e));
                     throw e;

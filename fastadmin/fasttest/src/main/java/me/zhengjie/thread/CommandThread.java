@@ -11,7 +11,7 @@ public class CommandThread implements Runnable {
             ProcessBuilder processBuilder = new ProcessBuilder("putty.exe");
 
             // 设置命令的工作目录（可选）
-            processBuilder.directory(new File("C:\\kit"));
+            processBuilder.directory(new File("D:\\kit"));
 
             // 启动命令并等待其执行完成
             Process process = processBuilder.start();

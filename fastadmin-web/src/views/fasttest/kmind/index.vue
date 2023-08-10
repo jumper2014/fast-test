@@ -1,5 +1,10 @@
 <template>
   <div class="app-container" style="padding: 8px;">
+    <p>选择要转换的脑图用例文件(*.km)</p>
+    <el-row>
+        <el-col :span="24" :style="{ height: '20px' }" >
+        </el-col>
+      </el-row>
     <div class="head-container">
       <el-button
         slot="left"
@@ -11,7 +16,7 @@
       >上传
       </el-button>
       <el-row>
-        <p>转换后的文件名:</p>
+        <p>转换后</p>
       </el-row>
       <el-row>
         <p>{{ fileOnServer }}</p>

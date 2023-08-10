@@ -4,6 +4,5 @@ import lombok.Data;
 
 @Data
 public class RemoteCommand {
-
-    public String cmd;
+    private String cmd;
 }
