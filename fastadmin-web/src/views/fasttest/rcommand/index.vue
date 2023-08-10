@@ -20,7 +20,7 @@
       </el-row>
       <el-row>
         <p>运行结果</p>
-        <textarea v-model="result" id="content" name="content" rows="20" cols="80"></textarea>
+        <textarea id="content" v-model="result" name="content" rows="20" cols="80" />
       </el-row>
     </div>
   </div>
