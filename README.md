@@ -46,7 +46,8 @@
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/lcommand.PNG)
 - 运行远程命令
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/rcommand.PNG)
-
+- 远程传输文件
+![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/rfile.PNG)
 
 #### 测试工具示例
 - 常见测试相关库使用示例

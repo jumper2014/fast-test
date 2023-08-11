@@ -36,14 +36,16 @@ public class RemoteCopyController {
         File fileDir = new File(rootPath);
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         String storagePath = "";
+        String fileName = "";
         if (!fileDir.exists() && !fileDir.isDirectory()) {
             fileDir.mkdirs();
         }
         try {
             if (mf != null) {
                 try {
-                    storagePath = rootPath + uuid + mf.getOriginalFilename();
-                    logger.info("上传的文件：" + mf.getName() + "," + mf.getContentType() + "," + mf.getOriginalFilename()
+                    fileName = mf.getOriginalFilename();
+                    storagePath = rootPath + fileName;
+                    logger.info("上传的文件：" + mf.getName() + "," + mf.getContentType() + "," + fileName
                             + "，保存的路径为：" + storagePath);
                     Streams.copy(mf.getInputStream(), new FileOutputStream(storagePath), true);
                 } catch (IOException e) {
@@ -54,7 +56,7 @@ public class RemoteCopyController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
-        return ResponseEntity.ok(storagePath);
+        return ResponseEntity.ok(fileName);
     }
 
     @PutMapping
@@ -62,6 +64,7 @@ public class RemoteCopyController {
     public ResponseEntity<Object> copyFile(@RequestBody RemoteCopy body, final HttpServletRequest request) {
         String fileName = body.getFileName();
         String remoteDir = body.getRemoteDir();
+        System.out.println("put request: " + fileName + "," + remoteDir);
         SshHelper.copy(rootPath+fileName, remoteDir, false);
         return ResponseEntity.ok(remoteDir + "/" + fileName);
     }

@@ -7,12 +7,13 @@ import java.io.InputStream;
 
 public class SshHelper {
 
+    public static String host = "192.168.0.1";
+    public static String username = "user";
+    public static String password = "pass";
+    public static String privateKeyPath = "";
+    public static int port = 22;
+
     public static String run(String command, boolean withCert) {
-        String host = "192.168.0.1";
-        String privateKeyPath = "";
-        int port = 22;
-        String username = "user";
-        String password = "pass";
         if (withCert) {
             privateKeyPath = "path_to_private_key_file";
         }
@@ -20,11 +21,11 @@ public class SshHelper {
         StringBuilder output = new StringBuilder();
         try {
             JSch jsch = new JSch();
-            if(withCert) {
+            if (withCert) {
                 jsch.addIdentity(privateKeyPath);
             }
             Session session = jsch.getSession(username, host, port);
-            if(!withCert) {
+            if (!withCert) {
                 session.setPassword(password);
             }
             session.setConfig("StrictHostKeyChecking", "no");
@@ -58,5 +59,37 @@ public class SshHelper {
         }
 
         return output.toString();
+    }
+
+    public static String copy(String localFilePath, String remoteDirectory, boolean withCert) {
+        try {
+            JSch jsch = new JSch();
+            if(withCert) {
+                jsch.addIdentity(privateKeyPath);
+            }
+            Session session = jsch.getSession(username, host, port);
+            if(!withCert) {
+                session.setPassword(password);
+            }
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.connect();
+
+            ChannelSftp channelSftp = (ChannelSftp) session.openChannel("sftp");
+            channelSftp.connect();
+
+            channelSftp.cd(remoteDirectory);
+            channelSftp.put(localFilePath, remoteDirectory);
+
+            channelSftp.disconnect();
+            session.disconnect();
+            System.out.println("文件上传到远程服务器成功");
+        } catch (JSchException | SftpException e) {
+            e.printStackTrace();
+        }
+        return remoteDirectory;
+    }
+
+    public static void main(String[] args) {
+            copy("d:/2.txt", "/home/admin", false);
     }
 }
