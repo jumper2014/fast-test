@@ -50,7 +50,10 @@
 - 远程传输文件
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/rfile.PNG)
 
-#### 测试工具示例
+#### test-tool-common-code-demo
+- 自定义测试库
+  - 电子邮件地址生成器，身份证号码生成与校验，手机号码生成器，中文姓名生成器，英文姓名生成器
+  - 
 - 常见测试相关库使用示例
   - AssertJ - 完成
   - HttpClient - 完成
