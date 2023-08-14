@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BUser {
-    String name;
-    int age;
+public class UserBean {
+    private String name;
+    private int age;
 
 }

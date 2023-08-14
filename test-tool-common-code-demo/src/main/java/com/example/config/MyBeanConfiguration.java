@@ -1,6 +1,6 @@
 package com.example.config;
 
-import com.example.beans.BUser;
+import com.example.beans.UserBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class MyBeanConfiguration {
 
     @Bean
-    public BUser user() {
-        return new BUser("Tester", 18);
+    public UserBean user() {
+        return new UserBean("Tester", 18);
     }
 }

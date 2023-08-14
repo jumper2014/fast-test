@@ -1,7 +1,7 @@
 package com.example.sp;
 
 import com.example.App;
-import com.example.beans.BUser;
+import com.example.beans.UserBean;
 import com.example.config.MyBeanConfiguration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +18,7 @@ public class BeanConfigurationTest {
     public void myTest() {
         ApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(MyBeanConfiguration.class);
-        BUser user = applicationContext.getBean("user", BUser.class);
+        UserBean user = applicationContext.getBean("user", UserBean.class);
         System.out.println(user);
 
     }
