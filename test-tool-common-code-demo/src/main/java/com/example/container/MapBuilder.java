@@ -1,4 +1,4 @@
-package com.example.datastructure;
+package com.example.container;
 
 import java.util.HashMap;
 import java.util.Map;

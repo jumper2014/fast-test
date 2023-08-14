@@ -8,6 +8,7 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [fastadmin](./fastadmin)                         | 基于eladmin的测试工具平台后端 - Java                                |
 | [fastadmin-web](./fastadmin-web)                         | 基于eladmin的测试工具平台前端 - Vue                             |
+| [test-tool-common-code-demo](./test-tool-common-code-demo)       | Java测试相关通用代码示例                             |
 | [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 基于Java JUnit+Allure+Grpc的接口测试框架                             |
 | [test-framework-ddt-selenium-demo](./test-framework-ddt-selenium-demo)       | 基于Java TestNg+Selenium+Excel的UI数据驱动测试框架,测试用例和页面元素用表格管理                             |
 | [test-framework-http-api-moco-demo](./test-framework-http-api-moco-demo)       | 基于Java JUnit/TestNg的HTTP接口测试框架, AUT使用MOCO框架生成Mocker                             |
@@ -18,7 +19,6 @@
 | [test-framework-testng-selenium-demo](./test-framework-testng-selenium-demo)       | 基于Java TestNg+Selenium+PageObject的UI测试框架                             |
 | [test-framework-unittest-selenium-demo](./test-framework-unittest-selenium-demo)       | 基于Python unittest+Selenium+PageObject的UI测试框架                             |
 | [test-tool-state-transition-diagram-demo](./test-tool-state-transition-diagram-demo)       | 基于Python 状态转换图自动生成测试用例的工具                             |
-| [test-tool-common-code-demo](./test-tool-common-code-demo)       | Java测试通用代码示例                             |
 | [test-flash](./test-flash)                         | 基于web-flash的测试工具平台 - Java                           |
 | [resource.md](./doc/md/resource.md)                         | 环境资源指南文档                              |
 
