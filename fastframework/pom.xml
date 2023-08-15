@@ -12,11 +12,10 @@
   </parent>
 
   <groupId>com.example</groupId>
-  <artifactId>test-tool-common-code-demo</artifactId>
+  <artifactId>fast-framework</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>test-tool-common-code-demo</name>
-  <url>http://www.fasttest.com</url>
+  <name>fast-framework</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -65,7 +64,6 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
       <exclusions>
         <exclusion>
           <groupId>org.junit.vintage</groupId>
@@ -155,6 +153,30 @@
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
       <version>2.10.12</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.relevantcodes</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>2.41.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.14.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-all</artifactId>
+      <version>1.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.3.2</version>
     </dependency>
 
   </dependencies>

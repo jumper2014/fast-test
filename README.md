@@ -8,7 +8,7 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [fastadmin](./fastadmin)                         | 基于eladmin的测试工具平台后端 - Java                                |
 | [fastadmin-web](./fastadmin-web)                         | 基于eladmin的测试工具平台前端 - Vue                             |
-| [test-tool-common-code-demo](./test-tool-common-code-demo)       | Java测试相关通用代码示例                             |
+| [fastframework](./fastframework)       | Java通用测试框架代码示例                             |
 | [test-framework-allure-grpc-demo](./test-framework-allure-grpc-demo)       | 基于Java JUnit+Allure+Grpc的接口测试框架                             |
 | [test-framework-ddt-selenium-demo](./test-framework-ddt-selenium-demo)       | 基于Java TestNg+Selenium+Excel的UI数据驱动测试框架,测试用例和页面元素用表格管理                             |
 | [test-framework-http-api-moco-demo](./test-framework-http-api-moco-demo)       | 基于Java JUnit/TestNg的HTTP接口测试框架, AUT使用MOCO框架生成Mocker                             |
@@ -50,10 +50,11 @@
 - 远程传输文件
 ![alt text](https://github.com/jumper2014/fast-test/blob/main/doc/image/fastadmin/rfile.PNG)
 
-#### test-tool-common-code-demo
+#### fastframework
 - 自定义测试库
   - 电子邮件地址生成器，身份证号码生成与校验，手机号码生成器，中文姓名生成器，英文姓名生成器
   - 注解获得测试方法名，
+  - 测试报告，测试日志
 - 常见测试相关库使用示例
   - AssertJ - 完成
   - HttpClient - 完成

@@ -2,53 +2,52 @@
 <configuration>
     <springProperty scope="context" name="application.name" source="spring.application.name" />
     <springProperty scope="context" name="log.path" source="apps.log.path" />
-    <springProperty scope="context" name="idc" source="app.idc" />
 
-    <appender name="access" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/${application.name}_access.log</file>
-        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder" />
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 按天回滚 daily -->
-            <fileNamePattern>${log.path}/${application.name}_access.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!-- 日志最大的历史 30天 -->
-            <maxHistory>60</maxHistory>
-            <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
-            <!--<totalSizeCap>1GB</totalSizeCap>-->
-        </rollingPolicy>
-    </appender>
+<!--    <appender name="access" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${log.path}/${application.name}_access.log</file>-->
+<!--        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder" />-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash; 按天回滚 daily &ndash;&gt;-->
+<!--            <fileNamePattern>${log.path}/${application.name}_access.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+<!--            &lt;!&ndash; 日志最大的历史 30天 &ndash;&gt;-->
+<!--            <maxHistory>60</maxHistory>-->
+<!--            &lt;!&ndash;用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志&ndash;&gt;-->
+<!--            &lt;!&ndash;<totalSizeCap>1GB</totalSizeCap>&ndash;&gt;-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
 
-    <appender name="alarm" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/${application.name}_alarm.log</file>
-        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder" />
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 按天回滚 daily -->
-            <fileNamePattern>${log.path}/${application.name}_alarm.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!-- 日志最大的历史 30天 -->
-            <maxHistory>60</maxHistory>
-            <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
-            <!--<totalSizeCap>1GB</totalSizeCap>-->
-        </rollingPolicy>
-    </appender>
+<!--    <appender name="alarm" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${log.path}/${application.name}_alarm.log</file>-->
+<!--        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder" />-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash; 按天回滚 daily &ndash;&gt;-->
+<!--            <fileNamePattern>${log.path}/${application.name}_alarm.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+<!--            &lt;!&ndash; 日志最大的历史 30天 &ndash;&gt;-->
+<!--            <maxHistory>60</maxHistory>-->
+<!--            &lt;!&ndash;用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志&ndash;&gt;-->
+<!--            &lt;!&ndash;<totalSizeCap>1GB</totalSizeCap>&ndash;&gt;-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
 
-    <appender name="ASYNC-ALARM" class="ch.qos.logback.classic.AsyncAppender">
-        <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="alarm" />
-    </appender>
+<!--    <appender name="ASYNC-ALARM" class="ch.qos.logback.classic.AsyncAppender">-->
+<!--        <discardingThreshold>0</discardingThreshold>-->
+<!--        <queueSize>1024</queueSize>-->
+<!--        <appender-ref ref="alarm" />-->
+<!--    </appender>-->
 
-    <appender name="ASYNC-ACCESS" class="ch.qos.logback.classic.AsyncAppender">
-        <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="access" />
-    </appender>
+<!--    <appender name="ASYNC-ACCESS" class="ch.qos.logback.classic.AsyncAppender">-->
+<!--        <discardingThreshold>0</discardingThreshold>-->
+<!--        <queueSize>1024</queueSize>-->
+<!--        <appender-ref ref="access" />-->
+<!--    </appender>-->
 
-    <logger name="accesslog" additivity="true" level="INFO">
-        <appender-ref ref="ASYNC-ACCESS" />
-    </logger>
+<!--    <logger name="accesslog" additivity="true" level="INFO">-->
+<!--        <appender-ref ref="ASYNC-ACCESS" />-->
+<!--    </logger>-->
 
-    <logger name="alarmlog" additivity="true" level="INFO">
-        <appender-ref ref="ASYNC-ALARM" />
-    </logger>
+<!--    <logger name="alarmlog" additivity="true" level="INFO">-->
+<!--        <appender-ref ref="ASYNC-ALARM" />-->
+<!--    </logger>-->
 
     <property name = "ENCODER_PATTERN" value = "%d{yyyy-MM-dd  HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n"/>
 
@@ -82,11 +81,11 @@
             <onMismatch>ACCEPT</onMismatch>
         </filter>
         <!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天的日志改名为今天的日期。即，<File> 的日志都是当天的。-->
-        <File>c:/tmp/info.spring-boot-demo-logback.log</File>
+        <File>${log.path}/${application.name}_info.log</File>
         <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
-            <FileNamePattern>c:/tmp/spring-boot-demo-logback/info.created_on_%d{yyyy-MM-dd}.part_%i.log</FileNamePattern>
+            <FileNamePattern>${log.path}/${application.name}_info.created_on_%d{yyyy-MM-dd}.part_%i.log</FileNamePattern>
             <!--只保留最近90天的日志-->
             <maxHistory>90</maxHistory>
             <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
@@ -111,11 +110,11 @@
             <level>Error</level>
         </filter>
         <!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天的日志改名为今天的日期。即，<File> 的日志都是当天的。-->
-        <File>c:/tmp/error.spring-boot-demo-logback.log</File>
+        <File>${log.path}/${application.name}_error.log</File>
         <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
-            <FileNamePattern>c:/tmp/spring-boot-demo-logback/error.created_on_%d{yyyy-MM-dd}.part_%i.log</FileNamePattern>
+            <FileNamePattern>${log.path}/${application.name}_error.created_on_%d{yyyy-MM-dd}.part_%i.log</FileNamePattern>
             <!--只保留最近90天的日志-->
             <maxHistory>90</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
