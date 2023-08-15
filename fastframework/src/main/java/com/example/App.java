@@ -15,11 +15,6 @@ import org.springframework.context.annotation.ComponentScan;
 public class App {
     public static final Logger log = LoggerFactory.getLogger(App.class);
     public static void main(String[] args) {
-
-
-//        SpringApplication.run(App.class, args);
-//
-//        System.out.println("Hello World!");
         ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
         int length = context.getBeanDefinitionNames().length;
         log.trace("Spring boot启动初始化了 {} 个 Bean", length);
@@ -29,7 +24,7 @@ public class App {
         log.error("Spring boot启动初始化了 {} 个 Bean", length);
         try {
             int i = 0;
-            int j = 1 / i;
+//            int j = 1 / i;
         } catch (Exception e) {
             log.error("【SpringBootDemoLogbackApplication】启动异常：", e);
         }

@@ -17,14 +17,14 @@ import java.lang.reflect.Method;
  */
 @Listeners(TestListener.class)
 @SpringBootTest(classes = App.class )
-public class BaseTest extends AbstractTestNGSpringContextTests {
+public class TestNgBaseTest extends AbstractTestNGSpringContextTests {
     /*
     AbstractTestNGSpringContextTests：测试类只有继承了该类才能拥有注入实例能力，否则注入报错
     AbstractTransactionalTestNGSpringContextTests：测试类继承该类后拥有注入实例能力，同时拥有事务控制能力
      */
-    private static final Logger baseTestLogger = LoggerFactory.getLogger(BaseTest.class);
+    private static final Logger baseTestLogger = LoggerFactory.getLogger(TestNgBaseTest.class);
 
-    public BaseTest() {
+    public TestNgBaseTest() {
         TestReport.initReport();
     }
 

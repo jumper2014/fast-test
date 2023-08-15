@@ -5,7 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TestLogger {
-    // 使用指定的类初始化日志对象，方便在日志输出的时候，可以打印出日志信息所属的类。
+    //By using the specified class to initialize the log object, it becomes convenient to print out
+    // the class information when logging.
     private static final Logger logger = LoggerFactory.getLogger(TestLogger.class);
 
     private TestLogger() {

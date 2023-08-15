@@ -5,8 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.testng.*;
 
 /*
-监听器就是一个实现特定接口的普通java程序，这个程序专门用于监听另一个java对象的方法调用或属性改变，
-当被监听对象发生上述事件后，监听器某个方法将立即被执行。
+A listener is a regular Java program that implements a specific interface. It is designed to monitor method invocations
+or property changes of another Java object. When the object being listened to triggers one of these events,
+a specific method in the listener will be executed immediately.
  */
 public class TestListener implements ITestListener, ISuiteListener, IInvokedMethodListener {
     private static final Logger logger = LoggerFactory.getLogger(TestListener.class);
@@ -60,13 +61,11 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
         TestLogger.info(logger, "Test finished: " + context.getName());
     }
 
-    // 调用前
     @Override
     public void beforeInvocation(IInvokedMethod iInvokedMethod, ITestResult iTestResult) {
         logger.info("beforeInvocation: {}", iTestResult.getName());
     }
 
-    // 调用后
     @Override
     public void afterInvocation(IInvokedMethod iInvokedMethod, ITestResult iTestResult) {
         logger.info("afterInvocation: {}", iTestResult.getName());
