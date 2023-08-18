@@ -22,6 +22,15 @@ public class UserController {
         return users;
     }
 
+    @GetMapping("/{userId}")
+    @Action(value = "find user via id")
+    public UserBean findUser(@PathVariable("userId") String userId) {
+        UserBean user = new UserBean();
+        user.setAge(10);
+        user.setName("User" + userId);
+        return user;
+    }
+
 
 
 

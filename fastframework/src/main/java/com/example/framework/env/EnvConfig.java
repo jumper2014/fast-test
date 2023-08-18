@@ -1,4 +1,4 @@
-package com.example.framework;
+package com.example.framework.env;
 
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;

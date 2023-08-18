@@ -1,0 +1,31 @@
+testcase:
+  http:
+    user:
+      get:
+        userGetCaseList:
+          - testDesc: "Yaml Test 1"
+            request:
+              userId: 1
+            response:
+              success: !!bool true
+              retCode: 110PORAPS0001
+              retInfo: "Handle success"
+
+
+          - testDesc: "Yaml Test 2"
+            request:
+              userId: 2
+            response:
+              success: !!bool true
+              retCode: 110PORAPS0001
+              retInfo: "Handle fail"
+
+
+
+
+
+
+
+
+
+

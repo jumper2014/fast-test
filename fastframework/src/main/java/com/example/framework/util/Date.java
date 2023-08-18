@@ -1,4 +1,4 @@
-package com.example.framework;
+package com.example.framework.util;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
