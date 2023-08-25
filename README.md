@@ -56,8 +56,10 @@
   - 注解获得测试方法名，日志切面，测试环境配置
   - 基于Yaml文件的数据驱动测试
   - 测试报告，测试日志，自定义验证库
+  - @Retryable
   - 常用测试库的使用：Mockito,AssertJ,HttpClient,OkHttp,RestAssured,RestTemplate
   - 常见Java库的使用：Quartz,Ehcache,读取yaml文件
+  - 待加入：读取配置，Swagger，自定义异常
 
 ### 感谢
 - [感谢eladmin提供测试平台的管理功能支持](https://github.com/elunez/eladmin)
