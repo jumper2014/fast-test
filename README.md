@@ -57,7 +57,7 @@
   - 基于Yaml文件的数据驱动测试
   - 测试报告，测试日志，自定义验证库
   - @Retryable
-  - 常用测试库的使用：Mockito,AssertJ,HttpClient,OkHttp,RestAssured,RestTemplate
+  - 常用测试库的使用：Mockito,PowerMockito, AssertJ,HttpClient,OkHttp,RestAssured,RestTemplate
   - 常见Java库的使用：Quartz,Ehcache,读取yaml文件
   - 待加入：读取配置，Swagger，自定义异常
 
