@@ -2,6 +2,7 @@ package com.example.exception;
 
 import com.example.App;
 import com.example.beans.UserBean;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -36,6 +37,8 @@ public class ValidateUserExceptionTest {
         AppException exception = Assertions.assertThrows(AppException.class, () -> {
             user.validateAge();
         });
+
+        Assert.assertEquals(exception.getErrCode(), "01009");
 
     }
 }
