@@ -55,11 +55,11 @@
   - 电子邮件地址生成器，身份证号码生成与校验，手机号码生成器，中文姓名生成器，英文姓名生成器
   - 注解获得测试方法名，日志切面，测试环境配置
   - 基于Yaml文件的数据驱动测试
-  - 测试报告，测试日志，自定义验证库
+  - 测试报告，测试日志，自定义验证库，自定义异常验证
   - @Retryable
   - 常用测试库的使用：Mockito,PowerMockito, AssertJ,HttpClient,OkHttp,RestAssured,RestTemplate
   - 常见Java库的使用：Quartz,Ehcache,读取yaml文件
-  - 待加入：读取配置，Swagger，自定义异常
+  - 待加入：读取配置，Swagger
 
 ### 感谢
 - [感谢eladmin提供测试平台的管理功能支持](https://github.com/elunez/eladmin)
